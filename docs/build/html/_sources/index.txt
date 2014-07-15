@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Yottaa F2E Docs's documentation!
+Welcome to Yottaa F2E documentation!
 ===========================================
 
 Contents: Hello World
