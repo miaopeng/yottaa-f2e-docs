@@ -1,4 +1,4 @@
-Yottaa Javascript Style Guideline
+Javascript Style Guideline
 =================================
 
 Linting
@@ -17,7 +17,7 @@ Language Rules
 
   Do not do this:
 
-  .. code-block:: bash
+  .. code-block:: javascript
 
     var arr = [1,2,3,];
  
@@ -27,7 +27,7 @@ Language Rules
 
   Multiple declarations in one var and go with line ending commas like below:
 
-  .. code-block:: bash
+  .. code-block:: javascript
 
     var foo = '',
         bar = '',
@@ -38,8 +38,8 @@ Style Rules
 
 * Indentation
 
-  For spaces and no tabs.
+  4 spaces and no tabs.
 
 * Quotes
 
-  Prefer ' over "
+  Prefer ``'`` over ``"``

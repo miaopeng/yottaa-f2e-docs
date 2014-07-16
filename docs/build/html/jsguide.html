@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Yottaa Javascript Style Guideline &mdash; Yottaa F2E Docs 0.1 documentation</title>
+    <title>Javascript Style Guideline &mdash; Yottaa F2E Docs 0.1 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -45,8 +45,8 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="yottaa-javascript-style-guideline">
-<h1>Yottaa Javascript Style Guideline<a class="headerlink" href="#yottaa-javascript-style-guideline" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="javascript-style-guideline">
+<h1>Javascript Style Guideline<a class="headerlink" href="#javascript-style-guideline" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="linting">
 <h2>Linting<a class="headerlink" href="#linting" title="Permalink to this headline">¶</a></h2>
 <p>Use JSHint to detect errors and potential problems.The options for JSHint are stored in a .jshintrc file;</p>
@@ -59,16 +59,16 @@
 </li>
 <li><p class="first">Commas</p>
 <p>Do not do this:</p>
-<div class="highlight-bash"><div class="highlight"><pre>var <span class="nv">arr</span> <span class="o">=</span> <span class="o">[</span>1,2,3,<span class="o">]</span>;
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,];</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">Declarations</p>
 <p>Always use var for declarations. Avoid additional global variables.</p>
 <p>Multiple declarations in one var and go with line ending commas like below:</p>
-<div class="highlight-bash"><div class="highlight"><pre>var <span class="nv">foo</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>,
-    <span class="nv">bar</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>,
-    foobar;
+<div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+    <span class="nx">bar</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+    <span class="nx">foobar</span><span class="p">;</span>
 </pre></div>
 </div>
 </li>
@@ -78,10 +78,10 @@
 <h2>Style Rules<a class="headerlink" href="#style-rules" title="Permalink to this headline">¶</a></h2>
 <ul>
 <li><p class="first">Indentation</p>
-<p>For spaces and no tabs.</p>
+<p>4 spaces and no tabs.</p>
 </li>
 <li><p class="first">Quotes</p>
-<p>Prefer &#8216; over &#8220;</p>
+<p>Prefer <tt class="docutils literal"><span class="pre">'</span></tt> over <tt class="docutils literal"><span class="pre">&quot;</span></tt></p>
 </li>
 </ul>
 </div>
@@ -95,7 +95,7 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Yottaa Javascript Style Guideline</a><ul>
+<li><a class="reference internal" href="#">Javascript Style Guideline</a><ul>
 <li><a class="reference internal" href="#linting">Linting</a></li>
 <li><a class="reference internal" href="#language-rules">Language Rules</a></li>
 <li><a class="reference internal" href="#style-rules">Style Rules</a></li>
