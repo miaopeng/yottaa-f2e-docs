@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>JSHint Configration &mdash; Yottaa F2E Docs 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Yottaa F2E Docs 0.1 documentation" href="index.html" />
+    <link rel="prev" title="Javascript Style Guideline" href="jsguide.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="jsguide.html" title="Javascript Style Guideline"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Yottaa F2E Docs 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="jshint-configration">
+<h1>JSHint Configration<a class="headerlink" href="#jshint-configration" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-json"><div class="highlight"><pre>{
+
+    // Allows globals: &#39;document&#39;, &#39;navigator&#39; and &#39;FileReader&#39;
+    &quot;browser&quot;: true,
+
+    // Allows globals: &#39;escape&#39; and &#39;unescape&#39;
+    &quot;nonstandard&quot;: true,
+
+    // Allows custom globals
+    &quot;globals&quot;: {
+        &quot;jQuery&quot;:  true,
+        &quot;$&quot;: true,
+        &quot;_&quot;: true
+    },
+
+    // Disallows globals: &#39;alert&#39; and &#39;console&#39;
+    &quot;devel&quot;:          false,
+
+    // Disallows globals: &#39;debugger&#39;
+    &quot;debug&quot;:          false,
+
+    // Disallows ES5 features. (ES5 is supported from IE9)
+    &quot;es3&quot;:                    true,
+
+    // Do not force to use strict mode
+    &quot;strict&quot;:         false,
+
+    // Do not use ES6 syntax
+    &quot;esnext&quot;:         false,
+
+    // Do not prohibits the use of == and != in favor of === and !==?
+    &quot;eqeqeq&quot;:         true,
+
+
+    // Allows using &#39;== null&#39; comparisons
+    &quot;eqnull&quot;:         true,
+
+    // Allows expressions like &#39;a &amp;&amp; a()&#39; or &#39;a ? a() : b()&#39;
+    &quot;expr&quot;:                   true,
+
+    // Do not allow &#39;var a = function() { ... }();&#39;
+    // Recommendation: &#39;var a = (function() { ... })();&#39;
+    &quot;immed&quot;:          true,
+
+    // Do not use arguments.caller and arguments.callee
+    &quot;noarg&quot;:          true,
+
+    // Disallows undeclared variables
+    &quot;undef&quot;: true,
+
+    // This option warns when you define and never use your variables
+    &quot;unused&quot;: true,
+
+    // Allows code like &#39;if (a = 10) {}&#39;
+    &quot;boss&quot;: true,
+
+    // Allows eval
+    &quot;evil&quot;: true,
+
+    &quot;shadow&quot;: false,
+
+    // Disallows using &#39;__proto__&#39; property
+    &quot;proto&quot;: false,
+
+    &quot;validthis&quot;: true,
+
+    // Please add semicolons in the end of line
+    &quot;asi&quot;: false,
+
+    &quot;laxbreak&quot;: true,
+
+    &quot;laxcomma&quot;: true,
+
+    // This option requires you to always put curly braces around blocks in
+    // loops and conditionals.?
+    &quot;curly&quot;: false,
+
+    // Disallows to call constructor functions without assigning its result
+    // to any variable: &#39;new MyConstructor();&#39;
+    &quot;nonew&quot;: true,
+
+    // This option suppresses warnings about using [] notation when it can
+    // be expressed in dot notation: person[&#39;name&#39;] vs. person.name.
+    &quot;sub&quot;: false,
+
+    // Allows functions inside of loops
+    &quot;loopfunc&quot;: true,
+
+    // Allows &#39;javascript:&#39; URL
+    &quot;scripturl&quot;: true,
+
+    // Allows correct multi-line strings, it still warns about multi-line
+    // strings without escape characters or with anything in between the
+    // escape character and a whitespace.
+    &quot;multistr&quot;: true
+}
+</pre></div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="jsguide.html"
+                        title="previous chapter">Javascript Style Guideline</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/jshintrc.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="jsguide.html" title="Javascript Style Guideline"
+             >previous</a> |</li>
+        <li><a href="index.html">Yottaa F2E Docs 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Yottaa.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

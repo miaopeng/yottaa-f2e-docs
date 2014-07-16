@@ -13,5 +13,6 @@ Contents: Hello World
 
    gbs
    jsguide
+   jshintrc
    
 
