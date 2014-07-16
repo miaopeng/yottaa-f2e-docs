@@ -46,7 +46,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Yottaa F2E Docs'
-copyright = u'2014, mios'
+copyright = u'2014, Yottaa'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the

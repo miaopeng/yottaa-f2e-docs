@@ -12,14 +12,6 @@ Contents: Hello World
    :maxdepth: 2
 
    gbs
+   jsguide
    
-
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
 

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Graded Browser Support &mdash; Yottaa F2E Docs 0.1 documentation</title>
+    <title>Yottaa Javascript Style Guideline &mdash; Yottaa F2E Docs 0.1 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="Yottaa F2E Docs 0.1 documentation" href="index.html" />
-    <link rel="prev" title="Welcome to Yottaa F2E documentation!" href="index.html" /> 
+    <link rel="prev" title="Graded Browser Support" href="gbs.html" /> 
   </head>
   <body>
     <div class="related">
@@ -34,7 +34,7 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="index.html" title="Welcome to Yottaa F2E documentation!"
+          <a href="gbs.html" title="Graded Browser Support"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">Yottaa F2E Docs 0.1 documentation</a> &raquo;</li> 
       </ul>
@@ -45,43 +45,46 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="graded-browser-support">
-<h1>Graded Browser Support<a class="headerlink" href="#graded-browser-support" title="Permalink to this headline">¶</a></h1>
-<table border="1" class="docutils">
-<colgroup>
-<col width="33%" />
-<col width="33%" />
-<col width="33%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Browser</th>
-<th class="head">Version</th>
-<th class="head">Grade</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>Chrome</td>
-<td>Lastest stable</td>
-<td>A-grade</td>
-</tr>
-<tr class="row-odd"><td>Firefox</td>
-<td>Lastest stable</td>
-<td>A-grade</td>
-</tr>
-<tr class="row-even"><td>IE</td>
-<td>10</td>
-<td>C-grade</td>
-</tr>
-<tr class="row-odd"><td>IE</td>
-<td>9</td>
-<td>C-grade</td>
-</tr>
-<tr class="row-even"><td>IE</td>
-<td>8</td>
-<td>C-grade</td>
-</tr>
-</tbody>
-</table>
+  <div class="section" id="yottaa-javascript-style-guideline">
+<h1>Yottaa Javascript Style Guideline<a class="headerlink" href="#yottaa-javascript-style-guideline" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="linting">
+<h2>Linting<a class="headerlink" href="#linting" title="Permalink to this headline">¶</a></h2>
+<p>Use JSHint to detect errors and potential problems.The options for JSHint are stored in a .jshintrc file;</p>
+</div>
+<div class="section" id="language-rules">
+<h2>Language Rules<a class="headerlink" href="#language-rules" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Semicolons</p>
+<p>Always use semicolons.</p>
+</li>
+<li><p class="first">Commas</p>
+<p>Do not do this:</p>
+<div class="highlight-bash"><div class="highlight"><pre>var <span class="nv">arr</span> <span class="o">=</span> <span class="o">[</span>1,2,3,<span class="o">]</span>;
+</pre></div>
+</div>
+</li>
+<li><p class="first">Declarations</p>
+<p>Always use var for declarations. Avoid additional global variables.</p>
+<p>Multiple declarations in one var and go with line ending commas like below:</p>
+<div class="highlight-bash"><div class="highlight"><pre>var <span class="nv">foo</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>,
+    <span class="nv">bar</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>,
+    foobar;
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="style-rules">
+<h2>Style Rules<a class="headerlink" href="#style-rules" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Indentation</p>
+<p>For spaces and no tabs.</p>
+</li>
+<li><p class="first">Quotes</p>
+<p>Prefer &#8216; over &#8220;</p>
+</li>
+</ul>
+</div>
 </div>
 
 
@@ -90,12 +93,22 @@
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Yottaa Javascript Style Guideline</a><ul>
+<li><a class="reference internal" href="#linting">Linting</a></li>
+<li><a class="reference internal" href="#language-rules">Language Rules</a></li>
+<li><a class="reference internal" href="#style-rules">Style Rules</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
-  <p class="topless"><a href="index.html"
-                        title="previous chapter">Welcome to Yottaa F2E documentation!</a></p>
+  <p class="topless"><a href="gbs.html"
+                        title="previous chapter">Graded Browser Support</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="_sources/gbs.txt"
+    <li><a href="_sources/jsguide.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">
@@ -122,7 +135,7 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="index.html" title="Welcome to Yottaa F2E documentation!"
+          <a href="gbs.html" title="Graded Browser Support"
              >previous</a> |</li>
         <li><a href="index.html">Yottaa F2E Docs 0.1 documentation</a> &raquo;</li> 
       </ul>
