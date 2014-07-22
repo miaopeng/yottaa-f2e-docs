@@ -61,15 +61,19 @@
 <li>Semicolons</li>
 </ol>
 <blockquote>
-<div>Always use semicolons.</div></blockquote>
+<div><p>Always use semicolons.</p>
+<p><em>validator: JSHint</em></p>
+</div></blockquote>
 <ol class="arabic simple" start="2">
 <li>Commas</li>
 </ol>
 <blockquote>
-<div>Do not do this:</div></blockquote>
+<div><p>Do not do this:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,];</span>
 </pre></div>
 </div>
+<p><em>validator: JSHint</em></p>
+</div></blockquote>
 <ol class="arabic simple" start="3">
 <li>Declarations</li>
 </ol>
@@ -81,7 +85,7 @@
     <span class="nx">foobar</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>Declarations should always put top of content in function</p>
+<p>Declarations should always put top of content in function.</p>
 <p>Good:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">isvalid</span><span class="p">;</span>
 <span class="k">if</span> <span class="p">(</span><span class="nx">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
@@ -97,7 +101,6 @@
 </div>
 </div></blockquote>
 <ol class="arabic simple" start="4">
-<li>Do not use <tt class="docutils literal"><span class="pre">with</span></tt> <tt class="docutils literal"><span class="pre">void</span></tt> <tt class="docutils literal"><span class="pre">eval</span></tt></li>
 <li>Equality</li>
 </ol>
 <blockquote>
@@ -106,18 +109,38 @@ The only exception is when checking for <tt class="docutils literal"><span class
 <div class="highlight-javascript"><div class="highlight"><pre><span class="nx">undefOrNull</span> <span class="o">==</span> <span class="kc">null</span>
 </pre></div>
 </div>
+<p><em>validator: JSHint(eqeqeq, eqnull)</em></p>
 </div></blockquote>
+<ol class="arabic" start="5">
+<li><p class="first">With</p>
+<p>Don&#8217;t use <tt class="docutils literal"><span class="pre">with</span></tt></p>
+<p><em>validator: JSHint</em></p>
+</li>
+<li><p class="first">Eval</p>
+<p>Avoid to use <tt class="docutils literal"><span class="pre">eval</span></tt>.
+Using <tt class="docutils literal"><span class="pre">JSON.parse()</span></tt> or <tt class="docutils literal"><span class="pre">$.parseJSON()</span></tt> instead of <tt class="docutils literal"><span class="pre">eval()</span></tt> to parse JSON result.</p>
+<p><em>validator: JSHint</em></p>
+</li>
+</ol>
 </div>
 <div class="section" id="style-rules">
 <h2>Style Rules<a class="headerlink" href="#style-rules" title="Permalink to this headline">¶</a></h2>
-<ul>
-<li><p class="first">Indentation</p>
-<p>4 spaces and no tabs.</p>
+<ol class="arabic">
+<li><p class="first">Naming</p>
+<p>In general, use ClassNamesLikeThis, functionNamesLikeThis,
+variableNamesLikeThis, CONSTANT_VALUES_LIKE_THIS and file_names_like_this.js.</p>
 </li>
-<li><p class="first">Quotes</p>
-<p>Prefer <tt class="docutils literal"><span class="pre">'</span></tt> over <tt class="docutils literal"><span class="pre">&quot;</span></tt></p>
-</li>
-</ul>
+</ol>
+<ol class="arabic simple">
+<li>Indentation</li>
+</ol>
+<blockquote>
+<div>4 spaces and no tabs.</div></blockquote>
+<ol class="arabic simple" start="2">
+<li>Quotes</li>
+</ol>
+<blockquote>
+<div>Prefer <tt class="docutils literal"><span class="pre">'</span></tt> over <tt class="docutils literal"><span class="pre">&quot;</span></tt></div></blockquote>
 </div>
 </div>
 

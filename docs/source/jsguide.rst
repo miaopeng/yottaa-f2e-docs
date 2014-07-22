@@ -13,13 +13,17 @@ Language Rules
 
   Always use semicolons.
 
+  *validator: JSHint*
+
 2. Commas
 
   Do not do this:
 
-.. code-block:: javascript
+  .. code-block:: javascript
 
-  var arr = [1,2,3,];
+    var arr = [1,2,3,];
+
+  *validator: JSHint*
  
 3. Declarations
 
@@ -34,7 +38,7 @@ Language Rules
         foobar;
 
 
-  Declarations should always put top of content in function
+  Declarations should always put top of content in function.
 
   Good:
 
@@ -53,8 +57,8 @@ Language Rules
           var isvalid = true;
       } 
 
-4. Do not use ``with`` ``void`` ``eval``
-5. Equality
+
+4. Equality
 
   Strict equality checks (===) must be used in favor of abstract equality checks (==). 
   The only exception is when checking for ``undefined`` and ``null`` by way of ``null``
@@ -63,14 +67,34 @@ Language Rules
 
     undefOrNull == null
 
+  *validator: JSHint(eqeqeq, eqnull)*
+
+5. With 
+
+   Don't use ``with``
+
+   *validator: JSHint*
+
+6. Eval
+
+   Avoid to use ``eval``. 
+   Using ``JSON.parse()`` or ``$.parseJSON()`` instead of ``eval()`` to parse JSON result.
+
+   *validator: JSHint*
+
 
 Style Rules
 -----------
 
-* Indentation
+1. Naming
+
+   In general, use ClassNamesLikeThis, functionNamesLikeThis, 
+   variableNamesLikeThis, CONSTANT_VALUES_LIKE_THIS and file_names_like_this.js.
+
+1. Indentation
 
   4 spaces and no tabs.
 
-* Quotes
+2. Quotes
 
   Prefer ``'`` over ``"``
