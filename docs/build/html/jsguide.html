@@ -57,27 +57,30 @@
 </div>
 <div class="section" id="language-rules">
 <h2>Language Rules<a class="headerlink" href="#language-rules" title="Permalink to this headline">¶</a></h2>
-<p>Semicolons</p>
+<ol class="arabic simple">
+<li>Semicolons</li>
+</ol>
 <blockquote>
 <div>Always use semicolons.</div></blockquote>
-<p>Commas</p>
+<ol class="arabic simple" start="2">
+<li>Commas</li>
+</ol>
 <blockquote>
-<div><p>Do not do this:</p>
+<div>Do not do this:</div></blockquote>
 <div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,];</span>
 </pre></div>
 </div>
-</div></blockquote>
-<p>Declarations</p>
+<ol class="arabic simple" start="3">
+<li>Declarations</li>
+</ol>
 <blockquote>
-<div><blockquote>
-<div><p>Always use var for declarations. Avoid additional global variables.</p>
-<p>Multiple declarations in one var and go with line ending commas like below:</p>
+<div><p>Always use <tt class="docutils literal"><span class="pre">var</span></tt> for declarations. Avoid additional global variables.</p>
+<p>Multiple declarations in one <tt class="docutils literal"><span class="pre">var</span></tt> and go with line ending commas like below:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
     <span class="nx">bar</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
     <span class="nx">foobar</span><span class="p">;</span>
 </pre></div>
 </div>
-</div></blockquote>
 <p>Declarations should always put top of content in function</p>
 <p>Good:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">isvalid</span><span class="p">;</span>
@@ -93,17 +96,17 @@
 </pre></div>
 </div>
 </div></blockquote>
-<ul>
-<li><p class="first">Do not use <tt class="docutils literal"><span class="pre">with</span></tt> <tt class="docutils literal"><span class="pre">void</span></tt> <tt class="docutils literal"><span class="pre">eval</span></tt></p>
-</li>
-<li><p class="first">Equality</p>
-<p>Strict equality checks (===) must be used in favor of abstract equality checks (==).
+<ol class="arabic simple" start="4">
+<li>Do not use <tt class="docutils literal"><span class="pre">with</span></tt> <tt class="docutils literal"><span class="pre">void</span></tt> <tt class="docutils literal"><span class="pre">eval</span></tt></li>
+<li>Equality</li>
+</ol>
+<blockquote>
+<div><p>Strict equality checks (===) must be used in favor of abstract equality checks (==).
 The only exception is when checking for <tt class="docutils literal"><span class="pre">undefined</span></tt> and <tt class="docutils literal"><span class="pre">null</span></tt> by way of <tt class="docutils literal"><span class="pre">null</span></tt></p>
 <div class="highlight-javascript"><div class="highlight"><pre><span class="nx">undefOrNull</span> <span class="o">==</span> <span class="kc">null</span>
 </pre></div>
 </div>
-</li>
-</ul>
+</div></blockquote>
 </div>
 <div class="section" id="style-rules">
 <h2>Style Rules<a class="headerlink" href="#style-rules" title="Permalink to this headline">¶</a></h2>

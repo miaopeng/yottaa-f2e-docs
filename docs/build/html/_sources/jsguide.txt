@@ -9,23 +9,23 @@ Use JSHint to detect errors and potential problems.The options for JSHint are st
 Language Rules
 --------------
 
-Semicolons
+1. Semicolons
 
   Always use semicolons.
 
-Commas
+2. Commas
 
   Do not do this:
 
-  .. code-block:: javascript
+.. code-block:: javascript
 
-    var arr = [1,2,3,];
+  var arr = [1,2,3,];
  
-Declarations
+3. Declarations
 
-  Always use var for declarations. Avoid additional global variables.
+  Always use ``var`` for declarations. Avoid additional global variables.
 
-  Multiple declarations in one var and go with line ending commas like below:
+  Multiple declarations in one ``var`` and go with line ending commas like below:
 
   .. code-block:: javascript
 
@@ -34,27 +34,27 @@ Declarations
         foobar;
 
 
- Declarations should always put top of content in function
+  Declarations should always put top of content in function
 
- Good:
+  Good:
 
- .. code-block:: javascript
+  .. code-block:: javascript
 
       var isvalid;
       if (n > 0) {
           isvalid = true;
       } 
 
- Bad:
+  Bad:
 
- .. code-block:: javascript
+  .. code-block:: javascript
 
       if (n > 0) {
           var isvalid = true;
       } 
 
-* Do not use ``with`` ``void`` ``eval``
-* Equality
+4. Do not use ``with`` ``void`` ``eval``
+5. Equality
 
   Strict equality checks (===) must be used in favor of abstract equality checks (==). 
   The only exception is when checking for ``undefined`` and ``null`` by way of ``null``
