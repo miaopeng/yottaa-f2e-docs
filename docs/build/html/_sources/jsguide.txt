@@ -6,7 +6,7 @@ Linting
 
 Use ``JSHint`` to detect errors and potential problems.
 
-More information can be found in the :doc:`jshintrc` page.
+More information can be found in the :doc:`jshint` page.
 
 Language Rules
 --------------
