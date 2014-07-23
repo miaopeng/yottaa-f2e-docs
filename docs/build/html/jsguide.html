@@ -78,8 +78,96 @@
 <li>Declarations</li>
 </ol>
 <blockquote>
-<div><p>Always use <tt class="docutils literal"><span class="pre">var</span></tt> for declarations. Avoid additional global variables.</p>
-<p>Multiple declarations in one <tt class="docutils literal"><span class="pre">var</span></tt> and go with line ending commas like below:</p>
+<div><p>Avoid undeclared variables.</p>
+<p><em>validator: JSHint(undef: true)</em></p>
+<p>Avoid additional global variables.</p>
+<p><em>validator: JSHint</em></p>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li>Equality</li>
+</ol>
+<blockquote>
+<div><p>Strict equality checks (===) must be used in favor of abstract equality checks (==).
+The only exception is when checking for <tt class="docutils literal"><span class="pre">undefined</span></tt> and <tt class="docutils literal"><span class="pre">null</span></tt> by way of <tt class="docutils literal"><span class="pre">null</span></tt></p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">undefOrNull</span> <span class="o">==</span> <span class="kc">null</span>
+</pre></div>
+</div>
+<p><em>validator: JSHint(eqeqeq, eqnull)</em></p>
+</div></blockquote>
+<ol class="arabic" start="5">
+<li><p class="first">Eval</p>
+<p>Avoid to use <tt class="docutils literal"><span class="pre">eval</span></tt>.
+Using <tt class="docutils literal"><span class="pre">JSON.parse()</span></tt> or <tt class="docutils literal"><span class="pre">$.parseJSON()</span></tt> instead of <tt class="docutils literal"><span class="pre">eval()</span></tt> to parse JSON result.</p>
+<p><em>validator: JSHint</em></p>
+</li>
+<li></li>
+</ol>
+<ol class="arabic" start="6">
+<li><p class="first">Deprecated</p>
+<p>Don&#8217;t use <tt class="docutils literal"><span class="pre">with</span></tt>, <tt class="docutils literal"><span class="pre">__proto__</span></tt>, <tt class="docutils literal"><span class="pre">arguments.caller</span></tt> and <tt class="docutils literal"><span class="pre">arguments.callee</span></tt></p>
+<p><em>validator: JSHint(noarg: true, proto: false)</em></p>
+</li>
+</ol>
+</div>
+<div class="section" id="style-rules">
+<h2>Style Rules<a class="headerlink" href="#style-rules" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Naming</li>
+</ol>
+<blockquote>
+<div><p>In general, use ClassNamesLikeThis, functionNamesLikeThis,
+variableNamesLikeThis, CONSTANT_VALUES_LIKE_THIS and file_names_like_this.js.</p>
+<p>We do not force use prefix on variable names and method names.
+But if you do, then meaning you follow some rules below:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Prefix</td>
+<td>Type</td>
+<td>Example</td>
+</tr>
+<tr class="row-even"><td>$</td>
+<td>jQuery Object</td>
+<td>$body</td>
+</tr>
+<tr class="row-odd"><td>_</td>
+<td>Private Method</td>
+<td>_init</td>
+</tr>
+<tr class="row-even"><td>s</td>
+<td>String</td>
+<td>sName</td>
+</tr>
+<tr class="row-odd"><td>o</td>
+<td>Object</td>
+<td>oResult</td>
+</tr>
+<tr class="row-even"><td>is, can, has</td>
+<td>Boolean</td>
+<td>isRoot</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li>Indentation</li>
+</ol>
+<blockquote>
+<div>4 spaces and no tabs.</div></blockquote>
+<ol class="arabic simple" start="3">
+<li>Quotes</li>
+</ol>
+<blockquote>
+<div>Prefer <tt class="docutils literal"><span class="pre">'</span></tt> over <tt class="docutils literal"><span class="pre">&quot;</span></tt></div></blockquote>
+<ol class="arabic simple" start="4">
+<li>Declarations</li>
+</ol>
+<blockquote>
+<div><p>Multiple declarations in one <tt class="docutils literal"><span class="pre">var</span></tt> and go with line ending commas like below:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
     <span class="nx">bar</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
     <span class="nx">foobar</span><span class="p">;</span>
@@ -100,47 +188,6 @@
 </pre></div>
 </div>
 </div></blockquote>
-<ol class="arabic simple" start="4">
-<li>Equality</li>
-</ol>
-<blockquote>
-<div><p>Strict equality checks (===) must be used in favor of abstract equality checks (==).
-The only exception is when checking for <tt class="docutils literal"><span class="pre">undefined</span></tt> and <tt class="docutils literal"><span class="pre">null</span></tt> by way of <tt class="docutils literal"><span class="pre">null</span></tt></p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">undefOrNull</span> <span class="o">==</span> <span class="kc">null</span>
-</pre></div>
-</div>
-<p><em>validator: JSHint(eqeqeq, eqnull)</em></p>
-</div></blockquote>
-<ol class="arabic" start="5">
-<li><p class="first">With</p>
-<p>Don&#8217;t use <tt class="docutils literal"><span class="pre">with</span></tt></p>
-<p><em>validator: JSHint</em></p>
-</li>
-<li><p class="first">Eval</p>
-<p>Avoid to use <tt class="docutils literal"><span class="pre">eval</span></tt>.
-Using <tt class="docutils literal"><span class="pre">JSON.parse()</span></tt> or <tt class="docutils literal"><span class="pre">$.parseJSON()</span></tt> instead of <tt class="docutils literal"><span class="pre">eval()</span></tt> to parse JSON result.</p>
-<p><em>validator: JSHint</em></p>
-</li>
-</ol>
-</div>
-<div class="section" id="style-rules">
-<h2>Style Rules<a class="headerlink" href="#style-rules" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic">
-<li><p class="first">Naming</p>
-<p>In general, use ClassNamesLikeThis, functionNamesLikeThis,
-variableNamesLikeThis, CONSTANT_VALUES_LIKE_THIS and file_names_like_this.js.</p>
-</li>
-</ol>
-<ol class="arabic simple">
-<li>Indentation</li>
-</ol>
-<blockquote>
-<div>4 spaces and no tabs.</div></blockquote>
-<ol class="arabic simple" start="2">
-<li>Quotes</li>
-</ol>
-<blockquote>
-<div>Prefer <tt class="docutils literal"><span class="pre">'</span></tt> over <tt class="docutils literal"><span class="pre">&quot;</span></tt></div></blockquote>
 </div>
 </div>
 

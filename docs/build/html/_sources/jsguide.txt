@@ -27,7 +27,84 @@ Language Rules
  
 3. Declarations
 
-  Always use ``var`` for declarations. Avoid additional global variables.
+  Avoid undeclared variables. 
+
+  *validator: JSHint(undef: true)*
+
+  Avoid additional global variables.
+
+  *validator: JSHint*
+
+4. Equality
+
+  Strict equality checks (===) must be used in favor of abstract equality checks (==). 
+  The only exception is when checking for ``undefined`` and ``null`` by way of ``null``
+
+  .. code-block:: javascript
+
+    undefOrNull == null
+
+  *validator: JSHint(eqeqeq, eqnull)*
+
+5. Eval
+
+   Avoid to use ``eval``. 
+   Using ``JSON.parse()`` or ``$.parseJSON()`` instead of ``eval()`` to parse JSON result.
+
+   *validator: JSHint*
+ 
+6. 
+
+6. Deprecated
+
+   Don't use ``with``, ``__proto__``, ``arguments.caller`` and ``arguments.callee``
+
+   *validator: JSHint(noarg: true, proto: false)*
+
+
+Style Rules
+-----------
+
+1. Naming
+
+  In general, use ClassNamesLikeThis, functionNamesLikeThis, 
+  variableNamesLikeThis, CONSTANT_VALUES_LIKE_THIS and file_names_like_this.js.
+
+  We do not force use prefix on variable names and method names. 
+  But if you do, then meaning you follow some rules below: 
+
+  .. list-table::
+
+    * - Prefix
+      - Type
+      - Example
+    * - $
+      - jQuery Object
+      - $body
+    * - _
+      - Private Method
+      - _init
+    * - s
+      - String
+      - sName
+    * - o
+      - Object
+      - oResult
+    * - is, can, has
+      - Boolean
+      - isRoot
+
+   
+
+2. Indentation
+
+  4 spaces and no tabs.
+
+3. Quotes
+
+  Prefer ``'`` over ``"``
+
+4. Declarations
 
   Multiple declarations in one ``var`` and go with line ending commas like below:
 
@@ -57,44 +134,3 @@ Language Rules
           var isvalid = true;
       } 
 
-
-4. Equality
-
-  Strict equality checks (===) must be used in favor of abstract equality checks (==). 
-  The only exception is when checking for ``undefined`` and ``null`` by way of ``null``
-
-  .. code-block:: javascript
-
-    undefOrNull == null
-
-  *validator: JSHint(eqeqeq, eqnull)*
-
-5. With 
-
-   Don't use ``with``
-
-   *validator: JSHint*
-
-6. Eval
-
-   Avoid to use ``eval``. 
-   Using ``JSON.parse()`` or ``$.parseJSON()`` instead of ``eval()`` to parse JSON result.
-
-   *validator: JSHint*
-
-
-Style Rules
------------
-
-1. Naming
-
-   In general, use ClassNamesLikeThis, functionNamesLikeThis, 
-   variableNamesLikeThis, CONSTANT_VALUES_LIKE_THIS and file_names_like_this.js.
-
-1. Indentation
-
-  4 spaces and no tabs.
-
-2. Quotes
-
-  Prefer ``'`` over ``"``

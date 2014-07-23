@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Tips and Tricks &mdash; Yottaa F2E Docs 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Yottaa F2E Docs 0.1 documentation" href="index.html" />
+    <link rel="prev" title="JSHint Configration" href="jshintrc.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="jshintrc.html" title="JSHint Configration"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Yottaa F2E Docs 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="tips-and-tricks">
+<h1>Tips and Tricks<a class="headerlink" href="#tips-and-tricks" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="jquery">
+<h2>jQuery<a class="headerlink" href="#jquery" title="Permalink to this headline">¶</a></h2>
+<p>1.Don&#8217;t use $.live and $.die, use $.on instead.</p>
+<p>2.Don&#8217;t use $.browser to determine browser, try to use feature detection instead.</p>
+</div>
+<div class="section" id="passing-data">
+<h2>Passing data<a class="headerlink" href="#passing-data" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Don&#8217;t use this pattern to pass data to javascript:</li>
+</ol>
+<blockquote>
+<div><div class="highlight-haml"><div class="highlight"><pre><span class="c">// Extra hidden html tags in haml.</span>
+<span class="nt">%input</span><span class="nf">#profiles_list_url</span><span class="p">{</span><span class="ss">:type</span> <span class="o">=&gt;</span> <span class="s1">&#39;hidden&#39;</span><span class="p">,</span> <span class="ss">:value</span> <span class="o">=&gt;</span> <span class="n">ui_monitors_path</span><span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="c1">// js</span>
+<span class="nx">url</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#profiles_list_url&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Resolution 1: passing data to application global object with inline javascript:</p>
+<div class="highlight-haml"><div class="highlight"><pre><span class="c">/ inline js in haml</span>
+<span class="nd">:javascript</span>
+  <span class="nd">app.init({</span>
+    <span class="nd">url: &#39;</span><span class="si">#{</span><span class="vi">@url</span><span class="si">}</span><span class="nd">&#39;;</span>
+  <span class="nd">});</span>
+</pre></div>
+</div>
+<p>Resolution 2: use &#8216;data&#8217; attribute of a related html element</p>
+<div class="highlight-haml"><div class="highlight"><pre><span class="c">/ haml</span>
+<span class="nf">#profile</span><span class="p">{</span><span class="ss">data</span><span class="p">:</span> <span class="p">{</span> <span class="ss">url</span><span class="p">:</span> <span class="n">profile_path</span> <span class="p">}</span> }
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="c1">// js</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#profile&#39;</span><span class="p">).</span><span class="nx">data</span><span class="p">();</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Tips and Tricks</a><ul>
+<li><a class="reference internal" href="#jquery">jQuery</a></li>
+<li><a class="reference internal" href="#passing-data">Passing data</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="jshintrc.html"
+                        title="previous chapter">JSHint Configration</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/tips.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="jshintrc.html" title="JSHint Configration"
+             >previous</a> |</li>
+        <li><a href="index.html">Yottaa F2E Docs 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Yottaa.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

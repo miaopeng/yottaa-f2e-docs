@@ -3,10 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Yottaa F2E documentation!
+Yottaa F2E Docs
 ===========================================
-
-Contents: Hello World
 
 .. toctree::
    :maxdepth: 2
@@ -14,5 +12,6 @@ Contents: Hello World
    gbs
    jsguide
    jshintrc
+   tips
    
 
