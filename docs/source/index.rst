@@ -11,7 +11,7 @@ Yottaa F2E Docs
 
    gbs
    jsguide
-   jshintrc
+   jshint
    tips
    
 

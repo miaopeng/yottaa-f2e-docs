@@ -4,7 +4,9 @@ Javascript Style Guideline
 Linting
 -------
 
-Use JSHint to detect errors and potential problems.The options for JSHint are stored in a .jshintrc file;
+Use ``JSHint`` to detect errors and potential problems.
+
+More information can be found in the :doc:`jshintrc` page.
 
 Language Rules
 --------------
