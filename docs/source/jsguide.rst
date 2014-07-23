@@ -53,8 +53,6 @@ Language Rules
 
    *validator: JSHint*
  
-6. 
-
 6. Deprecated
 
    Don't use ``with``, ``__proto__``, ``arguments.caller`` and ``arguments.callee``

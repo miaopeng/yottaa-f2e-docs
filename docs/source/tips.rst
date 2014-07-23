@@ -5,9 +5,9 @@ Tips and Tricks
 jQuery
 ------
 
-1.Don't use $.live and $.die, use $.on instead.
+1. Don't use ``$.live`` and ``$.die``, use ``$.on`` instead.
 
-2.Don't use $.browser to determine browser, try to use feature detection instead.
+2. Don't use ``$.browser`` to determine browser, try to use feature detection instead.
 
 Passing data
 ------------
@@ -16,7 +16,7 @@ Passing data
 
   .. code-block:: haml
     
-    // Extra hidden html tags in haml.
+    / Extra hidden html tags in haml.
     %input#profiles_list_url{:type => 'hidden', :value => ui_monitors_path}
 
   .. code-block:: javascript
@@ -34,7 +34,7 @@ Passing data
         url: '#{@url}';
       });
   
-  Resolution 2: use 'data' attribute of a related html element
+  Resolution 2: use ``data`` attribute of related html elements and ``$.fn.data``
 
   .. code-block:: haml
 

@@ -49,8 +49,10 @@
 <h1>Tips and Tricks<a class="headerlink" href="#tips-and-tricks" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="jquery">
 <h2>jQuery<a class="headerlink" href="#jquery" title="Permalink to this headline">¶</a></h2>
-<p>1.Don&#8217;t use $.live and $.die, use $.on instead.</p>
-<p>2.Don&#8217;t use $.browser to determine browser, try to use feature detection instead.</p>
+<ol class="arabic simple">
+<li>Don&#8217;t use <tt class="docutils literal"><span class="pre">$.live</span></tt> and <tt class="docutils literal"><span class="pre">$.die</span></tt>, use <tt class="docutils literal"><span class="pre">$.on</span></tt> instead.</li>
+<li>Don&#8217;t use <tt class="docutils literal"><span class="pre">$.browser</span></tt> to determine browser, try to use feature detection instead.</li>
+</ol>
 </div>
 <div class="section" id="passing-data">
 <h2>Passing data<a class="headerlink" href="#passing-data" title="Permalink to this headline">¶</a></h2>
@@ -58,7 +60,7 @@
 <li>Don&#8217;t use this pattern to pass data to javascript:</li>
 </ol>
 <blockquote>
-<div><div class="highlight-haml"><div class="highlight"><pre><span class="c">// Extra hidden html tags in haml.</span>
+<div><div class="highlight-haml"><div class="highlight"><pre><span class="c">/ Extra hidden html tags in haml.</span>
 <span class="nt">%input</span><span class="nf">#profiles_list_url</span><span class="p">{</span><span class="ss">:type</span> <span class="o">=&gt;</span> <span class="s1">&#39;hidden&#39;</span><span class="p">,</span> <span class="ss">:value</span> <span class="o">=&gt;</span> <span class="n">ui_monitors_path</span><span class="p">}</span>
 </pre></div>
 </div>
@@ -74,7 +76,7 @@
   <span class="nd">});</span>
 </pre></div>
 </div>
-<p>Resolution 2: use &#8216;data&#8217; attribute of a related html element</p>
+<p>Resolution 2: use <tt class="docutils literal"><span class="pre">data</span></tt> attribute of related html elements and <tt class="docutils literal"><span class="pre">$.fn.data</span></tt></p>
 <div class="highlight-haml"><div class="highlight"><pre><span class="c">/ haml</span>
 <span class="nf">#profile</span><span class="p">{</span><span class="ss">data</span><span class="p">:</span> <span class="p">{</span> <span class="ss">url</span><span class="p">:</span> <span class="n">profile_path</span> <span class="p">}</span> }
 </pre></div>
