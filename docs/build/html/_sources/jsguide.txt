@@ -8,7 +8,7 @@ Use ``JSHint`` to detect errors and potential problems.
 
 More information can be found in the :doc:`jshint` page.
 
-Use ``Google Closure Linter`` to detect and fix coding style erros.
+Use ``Google Closure Linter`` to detect and fix coding style errors.
 
 More information can be found in the :doc:`closure` page.
 
@@ -50,14 +50,34 @@ Language Rules
 
   *validator: JSHint(eqeqeq: true, eqnull: true)*
 
-5. Eval
+5. Curly Braces
+
+  Always put curly braces around blocks in loops and conditionals.
+
+  Bad: 
+
+  .. code-block:: javascript
+
+    if(condition) doSomething();
+
+  Good:
+
+  .. code-block:: javascript
+
+    if (condition) {
+        doSomething();
+    }
+
+  *validator: JSHint(curly: true)*
+
+6. Eval
 
    Avoid to use ``eval``. 
    Using ``JSON.parse()`` or ``$.parseJSON()`` instead of ``eval()`` to parse JSON result.
 
    *validator: JSHint*
  
-6. Deprecated
+7. Deprecated
 
    Don't use ``with``, ``__proto__``, ``arguments.caller`` and ``arguments.callee``
 
@@ -92,6 +112,9 @@ Style Rules
     * - o
       - Object
       - oResult
+    * - r
+      - RegExp
+      - rEmail
     * - is, can, has
       - Boolean
       - isRoot
@@ -108,7 +131,7 @@ Style Rules
 
 4. Declarations
 
-  Multiple declarations in one ``var`` and go with line ending commas like below:
+  * Multiple declarations in one ``var`` and go with line ending commas like below:
 
   .. code-block:: javascript
 
@@ -117,22 +140,29 @@ Style Rules
         foobar;
 
 
-  Declarations should always put top of content in function.
+  * Declarations should always put top of content in function.
 
-  Good:
+    Good:
 
-  .. code-block:: javascript
+    .. code-block:: javascript
 
       var isvalid;
       if (n > 0) {
           isvalid = true;
       } 
 
-  Bad:
+    Bad:
 
-  .. code-block:: javascript
+    .. code-block:: javascript
 
       if (n > 0) {
           var isvalid = true;
       } 
 
+  * Disallows code like:
+
+    .. code-block:: javascript
+
+      if (a = 10) {}
+
+    *validator: JSHint(boss: false)*

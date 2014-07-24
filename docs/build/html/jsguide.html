@@ -55,7 +55,7 @@
 <h2>Linting<a class="headerlink" href="#linting" title="Permalink to this headline">¶</a></h2>
 <p>Use <tt class="docutils literal"><span class="pre">JSHint</span></tt> to detect errors and potential problems.</p>
 <p>More information can be found in the <a class="reference internal" href="jshint.html"><em>JSHint Configration</em></a> page.</p>
-<p>Use <tt class="docutils literal"><span class="pre">Google</span> <span class="pre">Closure</span> <span class="pre">Linter</span></tt> to detect and fix coding style erros.</p>
+<p>Use <tt class="docutils literal"><span class="pre">Google</span> <span class="pre">Closure</span> <span class="pre">Linter</span></tt> to detect and fix coding style errors.</p>
 <p>More information can be found in the <a class="reference internal" href="closure.html"><em>Google Closure Linter</em></a> page.</p>
 </div>
 <div class="section" id="language-rules">
@@ -96,7 +96,24 @@ The only exception is when checking for <tt class="docutils literal"><span class
 </div>
 <p><em>validator: JSHint(eqeqeq: true, eqnull: true)</em></p>
 </div></blockquote>
-<ol class="arabic" start="5">
+<ol class="arabic simple" start="5">
+<li>Curly Braces</li>
+</ol>
+<blockquote>
+<div><p>Always put curly braces around blocks in loops and conditionals.</p>
+<p>Bad:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="k">if</span><span class="p">(</span><span class="nx">condition</span><span class="p">)</span> <span class="nx">doSomething</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Good:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="nx">condition</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">doSomething</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><em>validator: JSHint(curly: true)</em></p>
+</div></blockquote>
+<ol class="arabic" start="6">
 <li><p class="first">Eval</p>
 <p>Avoid to use <tt class="docutils literal"><span class="pre">eval</span></tt>.
 Using <tt class="docutils literal"><span class="pre">JSON.parse()</span></tt> or <tt class="docutils literal"><span class="pre">$.parseJSON()</span></tt> instead of <tt class="docutils literal"><span class="pre">eval()</span></tt> to parse JSON result.</p>
@@ -145,7 +162,11 @@ But if you do, then meaning you follow some rules below:</p>
 <td>Object</td>
 <td>oResult</td>
 </tr>
-<tr class="row-even"><td>is, can, has</td>
+<tr class="row-even"><td>r</td>
+<td>RegExp</td>
+<td>rEmail</td>
+</tr>
+<tr class="row-odd"><td>is, can, has</td>
 <td>Boolean</td>
 <td>isRoot</td>
 </tr>
@@ -166,13 +187,16 @@ But if you do, then meaning you follow some rules below:</p>
 <li>Declarations</li>
 </ol>
 <blockquote>
-<div><p>Multiple declarations in one <tt class="docutils literal"><span class="pre">var</span></tt> and go with line ending commas like below:</p>
+<div><ul class="simple">
+<li>Multiple declarations in one <tt class="docutils literal"><span class="pre">var</span></tt> and go with line ending commas like below:</li>
+</ul>
 <div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
     <span class="nx">bar</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
     <span class="nx">foobar</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>Declarations should always put top of content in function.</p>
+<ul>
+<li><p class="first">Declarations should always put top of content in function.</p>
 <p>Good:</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">isvalid</span><span class="p">;</span>
 <span class="k">if</span> <span class="p">(</span><span class="nx">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
@@ -186,6 +210,14 @@ But if you do, then meaning you follow some rules below:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
+</li>
+<li><p class="first">Disallows code like:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="nx">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{}</span>
+</pre></div>
+</div>
+<p><em>validator: JSHint(boss: false)</em></p>
+</li>
+</ul>
 </div></blockquote>
 </div>
 </div>
