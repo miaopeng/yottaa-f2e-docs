@@ -57,6 +57,20 @@
 <li><a class="reference external" href="http://www.jshint.com/install/">Install JSHint</a></li>
 <li><a class="reference external" href="http://www.jshint.com/docs/options/">JSHint options</a></li>
 </ul>
+<div class="section" id="intergration-with-vim">
+<h2>Intergration With VIM<a class="headerlink" href="#intergration-with-vim" title="Permalink to this headline">¶</a></h2>
+<p>Manually run JSHint with a hotkey</p>
+<div class="highlight-vim"><div class="highlight"><pre><span class="c">&quot; vimrc</span>
+<span class="nb">noremap</span> <span class="p">&lt;</span>F2<span class="p">&gt;</span> <span class="p">&lt;</span>ESC<span class="p">&gt;</span>:JSHint<span class="p">&lt;</span>CR<span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Auto run JSHint with <tt class="docutils literal"><span class="pre">Syntastic</span></tt> plugin when saving file</p>
+<div class="highlight-vim"><div class="highlight"><pre><span class="c">&quot; vimrc</span>
+Plugin <span class="s1">&#39;Syntastic&#39;</span>
+<span class="k">let</span> <span class="k">g</span>:syntastic_javascript_checkers <span class="p">=</span> [<span class="s1">&#39;jshint&#39;</span>]
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -65,6 +79,14 @@
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">JSHint Configration</a><ul>
+<li><a class="reference internal" href="#intergration-with-vim">Intergration With VIM</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="jsguide.html"
                         title="previous chapter">Javascript Style Guideline</a></p>

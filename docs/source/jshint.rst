@@ -13,3 +13,20 @@ See also:
 .. _Install JSHint: http://www.jshint.com/install/ 
 .. _JSHint options: http://www.jshint.com/docs/options/
 
+Intergration With VIM
+---------------------
+
+Manually run JSHint with a hotkey
+
+.. code-block:: vim
+
+  " vimrc
+  noremap <F2> <ESC>:JSHint<CR>
+
+Auto run JSHint with ``Syntastic`` plugin when saving file 
+
+.. code-block:: vim
+
+  " vimrc
+  Plugin 'Syntastic'
+  let g:syntastic_javascript_checkers = ['jshint']
