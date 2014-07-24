@@ -5,7 +5,7 @@ The ``ui`` gem repository contains a standard `.jshintrc`_ for use with Yottaa p
 
 .. _.jshintrc: https://github.com/Yottaa/ui/blob/develop/.jshintrc
 
-See also:
+See:
 
 * `Install JSHint`_
 * `JSHint options`_

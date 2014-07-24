@@ -8,6 +8,10 @@ Use ``JSHint`` to detect errors and potential problems.
 
 More information can be found in the :doc:`jshint` page.
 
+Use ``Google Closure Linter`` to detect and fix coding style erros.
+
+More information can be found in the :doc:`closure` page.
+
 Language Rules
 --------------
 
