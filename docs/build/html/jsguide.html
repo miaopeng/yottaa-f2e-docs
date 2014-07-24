@@ -73,7 +73,7 @@
 <div class="highlight-javascript"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,];</span>
 </pre></div>
 </div>
-<p><em>validator: JSHint</em></p>
+<p><em>validator: JSHint(es3: true)</em></p>
 </div></blockquote>
 <ol class="arabic simple" start="3">
 <li>Declarations</li>
@@ -82,7 +82,6 @@
 <div><p>Avoid undeclared variables.</p>
 <p><em>validator: JSHint(undef: true)</em></p>
 <p>Avoid additional global variables.</p>
-<p><em>validator: JSHint</em></p>
 </div></blockquote>
 <ol class="arabic simple" start="4">
 <li>Equality</li>
@@ -93,7 +92,7 @@ The only exception is when checking for <tt class="docutils literal"><span class
 <div class="highlight-javascript"><div class="highlight"><pre><span class="nx">undefOrNull</span> <span class="o">==</span> <span class="kc">null</span>
 </pre></div>
 </div>
-<p><em>validator: JSHint(eqeqeq, eqnull)</em></p>
+<p><em>validator: JSHint(eqeqeq: true, eqnull: true)</em></p>
 </div></blockquote>
 <ol class="arabic" start="5">
 <li><p class="first">Eval</p>

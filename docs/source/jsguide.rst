@@ -25,7 +25,7 @@ Language Rules
 
     var arr = [1,2,3,];
 
-  *validator: JSHint*
+  *validator: JSHint(es3: true)*
  
 3. Declarations
 
@@ -34,8 +34,6 @@ Language Rules
   *validator: JSHint(undef: true)*
 
   Avoid additional global variables.
-
-  *validator: JSHint*
 
 4. Equality
 
@@ -46,7 +44,7 @@ Language Rules
 
     undefOrNull == null
 
-  *validator: JSHint(eqeqeq, eqnull)*
+  *validator: JSHint(eqeqeq: true, eqnull: true)*
 
 5. Eval
 
