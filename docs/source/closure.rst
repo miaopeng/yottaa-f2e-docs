@@ -43,3 +43,17 @@ Intergration With VIM
         call delete(tempfile)
     endtry
   endfunction
+
+Intergration With Atom
+----------------------
+
+Install the Atom package `Closure Linter`_, and reopen the Atom editor with:
+
+.. code-block:: bash
+  
+  atom .
+
+Then you can run `fixjsstyle` on current file with `⌃⌘j` (ctrl-cmd-j) or select 
+'Closure Linter: Fixjsstyle' command on the command menu.
+
+.. _Closure Linter: https://atom.io/packages/closure-linter
