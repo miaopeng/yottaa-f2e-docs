@@ -1,15 +1,24 @@
 CSS Style Guideline
 ===================
 
-Precompiler
------------
+Tools
+-----
 
-  We use the css precompiler `SASS` and the `SCSS` syntax.
+* Precompiler:
 
-Linting
--------
+  We use the css precompiler `SASS`_ and the `SCSS` syntax.
 
-  We use `scss-lint` for SCSS coding style linting.
+* Linting:
+
+  We use `scss-lint`_ for SCSS coding style linting.
+
+* Mixins:
+
+  We use `compass`_ for SCSS mixins.
+
+.. _SASS: http://sass-lang.com
+.. _scss-lint: https://github.com/causes/scss-lint
+.. _compass: http://compass-style.org
 
 Selectors
 ---------
@@ -68,7 +77,7 @@ Naming
 
   .. list-table::
 
-    * - Name
+    * - Type
       - Example
     * - status
       - .on, .active, .disabled
