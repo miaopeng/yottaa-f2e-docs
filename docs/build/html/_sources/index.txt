@@ -11,6 +11,7 @@ Yottaa F2E Docs
 
    gbs
    jsguide
+   cssguide
    jshint
    closure
    tips

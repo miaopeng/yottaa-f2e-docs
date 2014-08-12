@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>CSS Style Guideline &mdash; Yottaa F2E Docs 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Yottaa F2E Docs 0.1 documentation" href="index.html" />
+    <link rel="next" title="JSHint Configration" href="jshint.html" />
+    <link rel="prev" title="Javascript Style Guideline" href="jsguide.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="jshint.html" title="JSHint Configration"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="jsguide.html" title="Javascript Style Guideline"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Yottaa F2E Docs 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="css-style-guideline">
+<h1>CSS Style Guideline<a class="headerlink" href="#css-style-guideline" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="precompiler">
+<h2>Precompiler<a class="headerlink" href="#precompiler" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div>We use the css precompiler <cite>SASS</cite> and the <cite>SCSS</cite> syntax.</div></blockquote>
+</div>
+<div class="section" id="linting">
+<h2>Linting<a class="headerlink" href="#linting" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div>We use <cite>scss-lint</cite> for SCSS coding style linting.</div></blockquote>
+</div>
+<div class="section" id="selectors">
+<h2>Selectors<a class="headerlink" href="#selectors" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">The most ideal way is only use the <cite>class</cite> selector.
+Beware of misusing the <cite>id</cite> selector and <cite>tag</cite> selector.</p>
+<p>The <cite>id</cite> selector is for unique views only.Elements that occur exactly once
+inside a page should use IDs, otherwise, use classes.</p>
+<ul class="simple">
+<li>Good candidates for ids: header, footer, modal popups.</li>
+<li>Bad candidates for ids: navs, listings, item views.</li>
+</ul>
+<p>Don&#8217;t use comman <cite>tag</cite> selectors: <cite>div {}</cite>, <cite>a {}</cite>, <cite>span {}</cite></p>
+<p>Use <cite>tag</cite> selectors just for some fixed html structrues: <cite>.nav li {}</cite>,
+<cite>.select option {}</cite></p>
+<p>A example of an over-qualified selector might be <cite>ul.nav li a {}</cite>.
+We can instantly drop the ul and because we know <cite>.nav</cite> is a list, we
+therefore know that any <cite>a</cite> must be in an <cite>li</cite>, so we can get
+<cite>ul.nav li a {}</cite> down to just <cite>.nav a {}</cite>.</p>
+</li>
+<li><p class="first">Don&#8217;t use to many level for selector. 1 ~ 3 levels is the best. In SCSS,
+only one nesting levels at most.</p>
+</li>
+<li><p class="first">Don&#8217;t use element inline styles(<cite>style=&#8221;...&#8221;</cite>). You can only use inline css
+blocks in the html head element.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="naming">
+<h2>Naming<a class="headerlink" href="#naming" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Use hyphen for ids, classes, variable names and mixin names.</p>
+</li>
+<li><p class="first">ID and class&#8217;s name must clear and concisely. e.g. #users, .list</p>
+<p>The bad:</p>
+<div class="highlight-css"><div class="highlight"><pre><span class="nf">#abc</span>
+<span class="nc">.red</span>
+<span class="nc">.corner_bl_4</span>
+</pre></div>
+</div>
+<p>The good:</p>
+<div class="highlight-css"><div class="highlight"><pre><span class="nf">#monitor-list</span>
+<span class="nc">.nav-item</span>
+<span class="nc">.infobox</span>
+<span class="nc">.pagehead</span>
+</pre></div>
+</div>
+<p>The recommanded class names:</p>
+</li>
+</ol>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Name</td>
+<td>Example</td>
+</tr>
+<tr class="row-even"><td>status</td>
+<td>.on, .active, .disabled</td>
+</tr>
+<tr class="row-odd"><td>position</td>
+<td>.main, .side, .first, .last</td>
+</tr>
+<tr class="row-even"><td>structure</td>
+<td>.mod, .hd, .bd, .ft</td>
+</tr>
+<tr class="row-odd"><td>common</td>
+<td>.tb, .frm, .nav, .list, .item, .info</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<ol class="arabic simple">
+<li>JS hooks
+Use <cite>js-</cite> prefix classes for js hooks only. Don&#8217;t define styles for <cite>js-</cite>
+classes.</li>
+</ol>
+</div>
+<div class="section" id="style">
+<h2>Style<a class="headerlink" href="#style" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Multi line rules for scss files, single line for one rule or inline css.</li>
+</ol>
+</div>
+<div class="section" id="layout">
+<h2>Layout<a class="headerlink" href="#layout" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Clear floats with <cite>after</cite> or <cite>overflow</cite>, don&#8217;t add extra tags in html.</p>
+</li>
+<li><p class="first">All components you build should be left totally free of widths; they should
+always remain fluid and their widths should be governed by a parent/grid
+system.</p>
+<p>Heights should never be be applied to elements. Heights should only be
+applied to things which had dimensions before they entered the site
+(i.e. images and sprites). Never ever set heights on ps, uls, divs,
+anything. You can often achieve the desired effect with line-height
+which is far more flexible.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="shorthand">
+<h2>Shorthand<a class="headerlink" href="#shorthand" title="Permalink to this headline">¶</a></h2>
+<p>Shorthand CSS needs to be used with caution.</p>
+<p>It might be tempting to use declarations like background: red; but in
+doing so what you are actually saying is ‘I want no image to scroll,
+aligned top-left, repeating X and Y, and a background colour of red’.
+Nine times out of ten this won’t cause any issues but that one time it does is
+annoying enough to warrant not using such shorthand. Instead use
+background-color: red;.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">CSS Style Guideline</a><ul>
+<li><a class="reference internal" href="#precompiler">Precompiler</a></li>
+<li><a class="reference internal" href="#linting">Linting</a></li>
+<li><a class="reference internal" href="#selectors">Selectors</a></li>
+<li><a class="reference internal" href="#naming">Naming</a></li>
+<li><a class="reference internal" href="#style">Style</a></li>
+<li><a class="reference internal" href="#layout">Layout</a></li>
+<li><a class="reference internal" href="#shorthand">Shorthand</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="jsguide.html"
+                        title="previous chapter">Javascript Style Guideline</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="jshint.html"
+                        title="next chapter">JSHint Configration</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/cssguide.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="jshint.html" title="JSHint Configration"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="jsguide.html" title="Javascript Style Guideline"
+             >previous</a> |</li>
+        <li><a href="index.html">Yottaa F2E Docs 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Yottaa.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>
