@@ -6,7 +6,7 @@ Tools
 
 * Precompiler:
 
-  We use the css precompiler `SASS`_ and the `SCSS` syntax.
+  We use the css precompiler `SASS`_ and the ``SCSS`` syntax.
 
 * Linting:
 
@@ -23,29 +23,29 @@ Tools
 Selectors
 ---------
 
-1. The most ideal way is only use the `class` selector.
-   Beware of misusing the `id` selector and `tag` selector.
+1. The most ideal way is only use the ``class`` selector.
+   Beware of misusing the ``id`` selector and ``tag`` selector.
 
-   The `id` selector is for unique views only.Elements that occur exactly once
+   The ``id`` selector is for unique views only.Elements that occur exactly once
    inside a page should use IDs, otherwise, use classes.
 
    * Good candidates for ids: header, footer, modal popups.
    * Bad candidates for ids: navs, listings, item views.
    
-   Don't use comman `tag` selectors: `div {}`, `a {}`, `span {}`
+   Don't use comman ``tag`` selectors: ``div {}``, ``a {}``, ``span {}``
 
-   Use `tag` selectors just for some fixed html structrues: `.nav li {}`,
-   `.select option {}`
+   Use ``tag`` selectors just for some fixed html structrues: ``.nav li {}``,
+   ``.select option {}``
 
-   A example of an over-qualified selector might be `ul.nav li a {}`.
-   We can instantly drop the ul and because we know `.nav` is a list, we 
-   therefore know that any `a` must be in an `li`, so we can get 
-   `ul.nav li a {}` down to just `.nav a {}`.
+   A example of an over-qualified selector might be ``ul.nav li a {}``.
+   We can instantly drop the ul and because we know ``.nav`` is a list, we 
+   therefore know that any ``a`` must be in an ``li``, so we can get 
+   ``ul.nav li a {}`` down to just ``.nav a {}``.
 
 2. Don't use to many level for selector. 1 ~ 3 levels is the best. In SCSS,
    only one nesting levels at most.
 
-3. Don't use element inline styles(`style="..."`). You can only use inline css
+3. Don't use element inline styles(style="..."). You can only use inline css
    blocks in the html head element.
 
 Naming
@@ -89,7 +89,7 @@ Naming
       - .tb, .frm, .nav, .list, .item, .info
 
 #. JS hooks
-   Use `js-` prefix classes for js hooks only. Don't define styles for `js-`
+   Use ``js-`` prefix classes for js hooks only. Don't define styles for ``js-``
    classes.
 
 Style
@@ -100,7 +100,7 @@ Style
 Layout
 ------
 
-1. Clear floats with `after` or `overflow`, don't add extra tags in html.
+1. Clear floats with ``after`` or ``overflow``, don't add extra tags in html.
 2. All components you build should be left totally free of widths; they should 
    always remain fluid and their widths should be governed by a parent/grid 
    system.

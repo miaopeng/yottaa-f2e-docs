@@ -55,7 +55,7 @@
 <h2>Tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h2>
 <ul>
 <li><p class="first">Precompiler:</p>
-<p>We use the css precompiler <a class="reference external" href="http://sass-lang.com">SASS</a> and the <cite>SCSS</cite> syntax.</p>
+<p>We use the css precompiler <a class="reference external" href="http://sass-lang.com">SASS</a> and the <tt class="docutils literal"><span class="pre">SCSS</span></tt> syntax.</p>
 </li>
 <li><p class="first">Linting:</p>
 <p>We use <a class="reference external" href="https://github.com/causes/scss-lint">scss-lint</a> for SCSS coding style linting.</p>
@@ -68,26 +68,26 @@
 <div class="section" id="selectors">
 <h2>Selectors<a class="headerlink" href="#selectors" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
-<li><p class="first">The most ideal way is only use the <cite>class</cite> selector.
-Beware of misusing the <cite>id</cite> selector and <cite>tag</cite> selector.</p>
-<p>The <cite>id</cite> selector is for unique views only.Elements that occur exactly once
+<li><p class="first">The most ideal way is only use the <tt class="docutils literal"><span class="pre">class</span></tt> selector.
+Beware of misusing the <tt class="docutils literal"><span class="pre">id</span></tt> selector and <tt class="docutils literal"><span class="pre">tag</span></tt> selector.</p>
+<p>The <tt class="docutils literal"><span class="pre">id</span></tt> selector is for unique views only.Elements that occur exactly once
 inside a page should use IDs, otherwise, use classes.</p>
 <ul class="simple">
 <li>Good candidates for ids: header, footer, modal popups.</li>
 <li>Bad candidates for ids: navs, listings, item views.</li>
 </ul>
-<p>Don&#8217;t use comman <cite>tag</cite> selectors: <cite>div {}</cite>, <cite>a {}</cite>, <cite>span {}</cite></p>
-<p>Use <cite>tag</cite> selectors just for some fixed html structrues: <cite>.nav li {}</cite>,
-<cite>.select option {}</cite></p>
-<p>A example of an over-qualified selector might be <cite>ul.nav li a {}</cite>.
-We can instantly drop the ul and because we know <cite>.nav</cite> is a list, we
-therefore know that any <cite>a</cite> must be in an <cite>li</cite>, so we can get
-<cite>ul.nav li a {}</cite> down to just <cite>.nav a {}</cite>.</p>
+<p>Don&#8217;t use comman <tt class="docutils literal"><span class="pre">tag</span></tt> selectors: <tt class="docutils literal"><span class="pre">div</span> <span class="pre">{}</span></tt>, <tt class="docutils literal"><span class="pre">a</span> <span class="pre">{}</span></tt>, <tt class="docutils literal"><span class="pre">span</span> <span class="pre">{}</span></tt></p>
+<p>Use <tt class="docutils literal"><span class="pre">tag</span></tt> selectors just for some fixed html structrues: <tt class="docutils literal"><span class="pre">.nav</span> <span class="pre">li</span> <span class="pre">{}</span></tt>,
+<tt class="docutils literal"><span class="pre">.select</span> <span class="pre">option</span> <span class="pre">{}</span></tt></p>
+<p>A example of an over-qualified selector might be <tt class="docutils literal"><span class="pre">ul.nav</span> <span class="pre">li</span> <span class="pre">a</span> <span class="pre">{}</span></tt>.
+We can instantly drop the ul and because we know <tt class="docutils literal"><span class="pre">.nav</span></tt> is a list, we
+therefore know that any <tt class="docutils literal"><span class="pre">a</span></tt> must be in an <tt class="docutils literal"><span class="pre">li</span></tt>, so we can get
+<tt class="docutils literal"><span class="pre">ul.nav</span> <span class="pre">li</span> <span class="pre">a</span> <span class="pre">{}</span></tt> down to just <tt class="docutils literal"><span class="pre">.nav</span> <span class="pre">a</span> <span class="pre">{}</span></tt>.</p>
 </li>
 <li><p class="first">Don&#8217;t use to many level for selector. 1 ~ 3 levels is the best. In SCSS,
 only one nesting levels at most.</p>
 </li>
-<li><p class="first">Don&#8217;t use element inline styles(<cite>style=&#8221;...&#8221;</cite>). You can only use inline css
+<li><p class="first">Don&#8217;t use element inline styles(style=&#8221;...&#8221;). You can only use inline css
 blocks in the html head element.</p>
 </li>
 </ol>
@@ -141,7 +141,7 @@ blocks in the html head element.</p>
 </div></blockquote>
 <ol class="arabic simple">
 <li>JS hooks
-Use <cite>js-</cite> prefix classes for js hooks only. Don&#8217;t define styles for <cite>js-</cite>
+Use <tt class="docutils literal"><span class="pre">js-</span></tt> prefix classes for js hooks only. Don&#8217;t define styles for <tt class="docutils literal"><span class="pre">js-</span></tt>
 classes.</li>
 </ol>
 </div>
@@ -154,7 +154,7 @@ classes.</li>
 <div class="section" id="layout">
 <h2>Layout<a class="headerlink" href="#layout" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
-<li><p class="first">Clear floats with <cite>after</cite> or <cite>overflow</cite>, don&#8217;t add extra tags in html.</p>
+<li><p class="first">Clear floats with <tt class="docutils literal"><span class="pre">after</span></tt> or <tt class="docutils literal"><span class="pre">overflow</span></tt>, don&#8217;t add extra tags in html.</p>
 </li>
 <li><p class="first">All components you build should be left totally free of widths; they should
 always remain fluid and their widths should be governed by a parent/grid
