@@ -160,13 +160,28 @@ classes.</li>
 <h2>Style<a class="headerlink" href="#style" title="Permalink to this headline">¶</a></h2>
 <p>Multi line rules for scss files, single line for one rule or inline css.</p>
 <blockquote>
-<div><p>The good for multi line SASS:</p>
+<div><p>The good for multi lines of SASS:</p>
 <div class="highlight-css"><div class="highlight"><pre>@import &#39;compass&#39;;
+
+//----------------------------------
+// Simple Card
+//
+// @usage:
+//   &lt;div class=&quot;simple-card&quot;&gt;
+//     &lt;div class=&quot;hd&quot;&gt;Title&lt;/div&gt;
+//     &lt;div class=&quot;bd&quot;&gt;Content&lt;/div&gt;
+//   &lt;/div&gt;
+//-----------------------------------
+
+
+// Placeholder %card
 
 %card {
   @include clearfix;
   @include border-radius(2px);
 }
+
+// simple-card
 
 .simple-card {
   @extend %card;
@@ -183,7 +198,7 @@ classes.</li>
 }
 </pre></div>
 </div>
-<p>The good for single line css:</p>
+<p>The good for single line of css:</p>
 <div class="highlight-css"><div class="highlight"><pre><span class="nc">.monitor-list</span> <span class="p">{</span> <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span> <span class="k">padding</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span> <span class="k">margin</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span> <span class="p">}</span>
 <span class="nc">.monitor-list</span> <span class="nc">.hd</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#333</span><span class="p">;</span> <span class="p">}</span>
 </pre></div>
@@ -235,8 +250,8 @@ Nine times out of ten this won’t cause any issues but that one time it does is
 annoying enough to warrant not using such shorthand. Instead use
 <cite>background-color: red;</cite>.</p>
 </div>
-<div class="section" id="avoidings">
-<h2>Avoidings<a class="headerlink" href="#avoidings" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="deprecated">
+<h2>Deprecated<a class="headerlink" href="#deprecated" title="Permalink to this headline">¶</a></h2>
 <p>Avoid &#8216;style=&#8221;...&#8221;&#8217; on html tags.</p>
 <p>Avoid &#8216;&lt;style&gt;&#8217; tags in html body tag. style tag should go to html head.</p>
 <p>Avoid &#8216;filter&#8217; propery.</p>
@@ -261,7 +276,7 @@ annoying enough to warrant not using such shorthand. Instead use
 <li><a class="reference internal" href="#style">Style</a></li>
 <li><a class="reference internal" href="#layout">Layout</a></li>
 <li><a class="reference internal" href="#shorthand">Shorthand</a></li>
-<li><a class="reference internal" href="#avoidings">Avoidings</a></li>
+<li><a class="reference internal" href="#deprecated">Deprecated</a></li>
 </ul>
 </li>
 </ul>

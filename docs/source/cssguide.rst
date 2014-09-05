@@ -113,16 +113,31 @@ Style
 
 Multi line rules for scss files, single line for one rule or inline css.
 
-  The good for multi line SASS:
+  The good for multi lines of SASS:
 
   .. code-block:: css
 
     @import 'compass';
 
+    //----------------------------------
+    // Simple Card
+    // 
+    // @usage:
+    //   <div class="simple-card">
+    //     <div class="hd">Title</div>
+    //     <div class="bd">Content</div>
+    //   </div>
+    //-----------------------------------
+
+
+    // Placeholder %card
+
     %card {
       @include clearfix;
       @include border-radius(2px);
     }
+
+    // simple-card
 
     .simple-card {
       @extend %card;
@@ -138,7 +153,7 @@ Multi line rules for scss files, single line for one rule or inline css.
       }
     }
 
-  The good for single line css:
+  The good for single line of css:
   
   .. code-block:: css
 
@@ -196,8 +211,8 @@ Nine times out of ten this won’t cause any issues but that one time it does is
 annoying enough to warrant not using such shorthand. Instead use 
 `background-color: red;`.
 
-Avoidings
----------
+Deprecated
+----------
 
 Avoid 'style="..."' on html tags.
 
