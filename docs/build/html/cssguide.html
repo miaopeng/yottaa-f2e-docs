@@ -91,6 +91,8 @@ therefore know that any <tt class="docutils literal"><span class="pre">a</span><
 </ol>
 <blockquote>
 <div><div class="highlight-css"><div class="highlight"><pre><span class="nt">body</span> <span class="o">&gt;</span> <span class="o">*</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+<span class="nt">a</span><span class="nc">.class</span> <span class="nt">span</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+<span class="nc">.class</span> <span class="o">[</span><span class="nt">href</span><span class="o">]</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
 <span class="nt">ul</span> <span class="o">&gt;</span> <span class="nt">li</span> <span class="o">&gt;</span> <span class="nt">a</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
 <span class="nt">ul</span><span class="nf">#top_blue_nav</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
 <span class="nf">#searbar</span> <span class="nt">span</span><span class="nc">.submit</span> <span class="nt">a</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
@@ -111,8 +113,9 @@ only one nesting levels at most.</li>
 <li><p class="first">ID and class&#8217;s name must clear and concisely. e.g. #users, .list</p>
 <p>The bad:</p>
 <div class="highlight-css"><div class="highlight"><pre><span class="nf">#abc</span>
-<span class="nc">.red</span>
+<span class="nc">.button-green</span>
 <span class="nc">.corner_bl_4</span>
+<span class="nc">.clear</span>
 </pre></div>
 </div>
 <p>The good:</p>
@@ -163,15 +166,16 @@ classes.</li>
 <div><p>The good for multi lines of SASS:</p>
 <div class="highlight-css"><div class="highlight"><pre>@import &#39;compass&#39;;
 
-//----------------------------------
-// Simple Card
+//----------------------------------------------
+// Simple Card Container
+// Extend from card container, no borders
 //
 // @usage:
 //   &lt;div class=&quot;simple-card&quot;&gt;
 //     &lt;div class=&quot;hd&quot;&gt;Title&lt;/div&gt;
 //     &lt;div class=&quot;bd&quot;&gt;Content&lt;/div&gt;
 //   &lt;/div&gt;
-//-----------------------------------
+//----------------------------------------------
 
 
 // Placeholder %card
@@ -181,7 +185,7 @@ classes.</li>
   @include border-radius(2px);
 }
 
-// simple-card
+// simple card
 
 .simple-card {
   @extend %card;

@@ -55,6 +55,8 @@ Selectors
   .. code-block:: css
 
     body > * {...}
+    a.class span {...}
+    .class [href] {...}
     ul > li > a {...}
     ul#top_blue_nav {...}
     #searbar span.submit a { ... }
@@ -76,8 +78,9 @@ Naming
    .. code-block:: css
 
      #abc
-     .red
+     .button-green
      .corner_bl_4
+     .clear
 
    The good:
 
@@ -119,15 +122,16 @@ Multi line rules for scss files, single line for one rule or inline css.
 
     @import 'compass';
 
-    //----------------------------------
-    // Simple Card
-    // 
+    //----------------------------------------------
+    // Simple Card Container
+    // Extend from card container, no borders
+    //
     // @usage:
     //   <div class="simple-card">
     //     <div class="hd">Title</div>
     //     <div class="bd">Content</div>
     //   </div>
-    //-----------------------------------
+    //----------------------------------------------
 
 
     // Placeholder %card
@@ -137,7 +141,7 @@ Multi line rules for scss files, single line for one rule or inline css.
       @include border-radius(2px);
     }
 
-    // simple-card
+    // simple card
 
     .simple-card {
       @extend %card;
