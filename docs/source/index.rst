@@ -10,6 +10,7 @@ Yottaa F2E Docs
    :maxdepth: 2
 
    gbs
+   fileguide
    jsguide
    cssguide
    jshint

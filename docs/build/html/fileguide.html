@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Files Organization Guideline &mdash; Yottaa F2E Docs 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Yottaa F2E Docs 0.1 documentation" href="index.html" />
+    <link rel="next" title="Javascript Style Guideline" href="jsguide.html" />
+    <link rel="prev" title="Graded Browser Support" href="gbs.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="jsguide.html" title="Javascript Style Guideline"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="gbs.html" title="Graded Browser Support"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Yottaa F2E Docs 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="files-organization-guideline">
+<h1>Files Organization Guideline<a class="headerlink" href="#files-organization-guideline" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="golden-rules">
+<h2>Golden Rules<a class="headerlink" href="#golden-rules" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Modular development.</li>
+<li>Small Core.</li>
+<li>Load modules on-demand.</li>
+</ol>
+</div>
+<div class="section" id="rules">
+<h2>Rules<a class="headerlink" href="#rules" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>The core module should contains must-have modules only, and keep it as small as possible.</li>
+<li>When you hack some lib, you should avoid to change it directly. Try to
+override or hack them in other file instead.</li>
+<li>folders should named by clearly meaning instead of &#8216;common&#8217;, &#8216;plugins&#8217;
+, &#8216;frameworks&#8217;</li>
+<li>Always lists all your dependances, never use file globbings</li>
+<li>The third-party assets go to vendor folders.</li>
+</ul>
+</div>
+<div class="section" id="javascript-file-structure">
+<h2>Javascript file structure<a class="headerlink" href="#javascript-file-structure" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre>javascripts/
+|
+|-- admin/                        <span class="c"># Admin sub-project</span>
+|   |-- apps/
+|   |-- mods/
+|
+|-- apps/                         <span class="c"># Applictions</span>
+|   | -- site/
+|   |    | -- index.js
+|   |    | -- show.js
+|   |    | -- edit.js
+|   |
+|   | -- management/
+|
+|-- mods/                         <span class="c"># Modules</span>
+|   | -- modals/
+|   |   | -- index.js             <span class="c"># Module entry file</span>
+|   |   | -- modals-1.0.1.js
+|   |   | -- tests/
+|   |
+|   | -- graph/
+|   | -- lang/
+|
+|-- libs/                         <span class="c"># Libraries for wide use</span>
+|   | -- jquery/
+|   | -- backbone/
+|
+|-- tpls/                         <span class="c"># Static templates (TODO)</span>
+|
+|-- base.js                       <span class="c"># Primary base file for all page</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="javascript-requires">
+<h2>Javascript requires<a class="headerlink" href="#javascript-requires" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="c1">//= require v3/mods/pophelper</span>
+<span class="c1">//= require mods/modals</span>
+<span class="c1">//= require ./viewer</span>
+</pre></div>
+</div>
+<p>Prohibit to require other application files</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="c1">//= require apps/site/show   # This may cause problems!</span>
+<span class="c1">//= require ./viewer</span>
+</pre></div>
+</div>
+<p>Don&#8217;t require module with specifc index file</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="c1">//= require mods/modals/index</span>
+</pre></div>
+</div>
+<p>Always use:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="c1">//= require mods/modals</span>
+</pre></div>
+</div>
+<p>Always lists all your dependances, never use file globbings:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="c1">//= require_tree /common   # When system grow up, these files will become</span>
+<span class="c1">//= require_tree .         # hard to maintain.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="stylesheets-file-structure">
+<h2>Stylesheets file structure<a class="headerlink" href="#stylesheets-file-structure" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre>stylesheets/
+|
+|-- admin/                        <span class="c"># Admin sub-project</span>
+|   |-- apps/
+|   |-- mods/
+|
+|-- apps/                         <span class="c"># Applictions</span>
+|   | -- site/
+|   |    | -- index.scss
+|
+|-- mods/                         <span class="c"># Modules (or partials)</span>
+|   | -- modals.scss
+|   | -- button.scss
+|   | -- alerts.scss
+|
+|-- base.scss                       <span class="c"># Primary base file for all page</span>
+|-- init.scss                       <span class="c"># include non-output modals (TODO)</span>
+|-- variables.scss
+|-- mixins.scss
+|-- placeholders.scss
+</pre></div>
+</div>
+</div>
+<div class="section" id="stylesheets-imports">
+<h2>Stylesheets imports<a class="headerlink" href="#stylesheets-imports" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-css"><div class="highlight"><pre><span class="k">@import</span> <span class="s1">&#39;v3/init&#39;</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s1">&#39;v3/mods/buttons&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The &#8216;init.scss&#8217; contains none-output modals(variables, mixins, compass) and
+should be imported by all SCSS files exclude partials.(TODO)</p>
+<p>Don&#8217;t use Asset Pipeline require functions to impport files.</p>
+<p>Always lists all your dependances, never use file globbings:</p>
+<div class="highlight-css"><div class="highlight"><pre><span class="k">@import</span> <span class="s1">&#39;library/mixins/*&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="gems">
+<h2>Gems<a class="headerlink" href="#gems" title="Permalink to this headline">¶</a></h2>
+<p>compass-load-once</p>
+<p>sprockets_better_errors</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Files Organization Guideline</a><ul>
+<li><a class="reference internal" href="#golden-rules">Golden Rules</a></li>
+<li><a class="reference internal" href="#rules">Rules</a></li>
+<li><a class="reference internal" href="#javascript-file-structure">Javascript file structure</a></li>
+<li><a class="reference internal" href="#javascript-requires">Javascript requires</a></li>
+<li><a class="reference internal" href="#stylesheets-file-structure">Stylesheets file structure</a></li>
+<li><a class="reference internal" href="#stylesheets-imports">Stylesheets imports</a></li>
+<li><a class="reference internal" href="#gems">Gems</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="gbs.html"
+                        title="previous chapter">Graded Browser Support</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="jsguide.html"
+                        title="next chapter">Javascript Style Guideline</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/fileguide.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="jsguide.html" title="Javascript Style Guideline"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="gbs.html" title="Graded Browser Support"
+             >previous</a> |</li>
+        <li><a href="index.html">Yottaa F2E Docs 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Yottaa.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>
