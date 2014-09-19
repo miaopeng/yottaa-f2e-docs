@@ -1,4 +1,4 @@
-Files Organization Guideline
+File Organization Guideline
 ============================
 
 Golden Rules
@@ -18,13 +18,20 @@ Rules
 * Modules and folders should been named by clearly meaning: 'lang', 'dialog', 'suggestion',
   instead of 'common', 'plugins' , 'frameworks'
 * Always list all your dependances, never use file globbings.
-* When you hack some lib, you should avoid to change it directly. Try to 
-  override or hack them in other file instead.
-* The third-party assets go to vendor folder.
 * Always try to reduce the js and css request count in every page. Each page
   should contains two js links and two css links - the core module and the
   current appliction module. The modules that did not need in render process
   should loaded with delay or loaded on-demand.
+* The third-party assets should in vendor folder.
+  
+  If you need hack third-party files, you should avoid to change it directly. Try to 
+  override or hack them in other file instead.
+
+  If you are using gem for third-party assets, you should make a more meaningful
+  named folder and reference the gem in the index file.
+  
+  e.g. ``require mods/suggestion`` is better than ``require atwho``, because
+  maybe somebody don't know what is atwho.
 
 Javascript file structure
 -------------------------
@@ -94,8 +101,8 @@ Always lists all your dependances, never use file globbings:
 
 .. code-block:: javascript
 
-  //= require_tree /common   # When system grow up, these files will become
-  //= require_tree .         # hard to maintain.
+  //= require_tree /common   # Hard to maintain while system grow up.
+  //= require_tree .
 
 Stylesheets file structure
 --------------------------
@@ -144,7 +151,8 @@ Always lists all your dependances, never use file globbings:
 
     @import 'library/mixins/*'
 
-``@import 'compass'`` is very slow, we should use specifc package file:
+Avoid using ``@import 'compass';`` directly.
+Compiling ``@import 'compass'`` is very slow, we should specifc the package file:
 
 foo.scss:
 

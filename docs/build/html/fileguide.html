@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Files Organization Guideline &mdash; Yottaa F2E Docs 0.1 documentation</title>
+    <title>File Organization Guideline &mdash; Yottaa F2E Docs 0.1 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -49,8 +49,8 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="files-organization-guideline">
-<h1>Files Organization Guideline<a class="headerlink" href="#files-organization-guideline" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="file-organization-guideline">
+<h1>File Organization Guideline<a class="headerlink" href="#file-organization-guideline" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="golden-rules">
 <h2>Golden Rules<a class="headerlink" href="#golden-rules" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
@@ -61,21 +61,31 @@
 </div>
 <div class="section" id="rules">
 <h2>Rules<a class="headerlink" href="#rules" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li>The core module should contains must-have modules only, and keep it as small as possible.</li>
-<li>A module should be a standalone component, can be installed and removed
+<ul>
+<li><p class="first">The core module should contains must-have modules only, and keep it as small as possible.</p>
+</li>
+<li><p class="first">A module should be a standalone component, can be installed and removed
 easily. Mean that the module reference name should be simple, meaningful
-and easy to maintain.</li>
-<li>Modules and folders should been named by clearly meaning: &#8216;lang&#8217;, &#8216;dialog&#8217;, &#8216;suggestion&#8217;,
-instead of &#8216;common&#8217;, &#8216;plugins&#8217; , &#8216;frameworks&#8217;</li>
-<li>Always list all your dependances, never use file globbings.</li>
-<li>When you hack some lib, you should avoid to change it directly. Try to
-override or hack them in other file instead.</li>
-<li>The third-party assets go to vendor folder.</li>
-<li>Always try to reduce the js and css request count in every page. Each page
+and easy to maintain.</p>
+</li>
+<li><p class="first">Modules and folders should been named by clearly meaning: &#8216;lang&#8217;, &#8216;dialog&#8217;, &#8216;suggestion&#8217;,
+instead of &#8216;common&#8217;, &#8216;plugins&#8217; , &#8216;frameworks&#8217;</p>
+</li>
+<li><p class="first">Always list all your dependances, never use file globbings.</p>
+</li>
+<li><p class="first">Always try to reduce the js and css request count in every page. Each page
 should contains two js links and two css links - the core module and the
 current appliction module. The modules that did not need in render process
-should loaded with delay or loaded on-demand.</li>
+should loaded with delay or loaded on-demand.</p>
+</li>
+<li><p class="first">The third-party assets should in vendor folder.</p>
+<p>If you need hack third-party files, you should avoid to change it directly. Try to
+override or hack them in other file instead.</p>
+<p>If you are using gem for third-party assets, you should make a more meaningful
+named folder and reference the gem in the index file.</p>
+<p>e.g. <tt class="docutils literal"><span class="pre">require</span> <span class="pre">mods/suggestion</span></tt> is better than <tt class="docutils literal"><span class="pre">require</span> <span class="pre">atwho</span></tt>, because
+maybe somebody don&#8217;t know what is atwho.</p>
+</li>
 </ul>
 </div>
 <div class="section" id="javascript-file-structure">
@@ -134,8 +144,8 @@ should loaded with delay or loaded on-demand.</li>
 </pre></div>
 </div>
 <p>Always lists all your dependances, never use file globbings:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="c1">//= require_tree /common   # When system grow up, these files will become</span>
-<span class="c1">//= require_tree .         # hard to maintain.</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="c1">//= require_tree /common   # Hard to maintain while system grow up.</span>
+<span class="c1">//= require_tree .</span>
 </pre></div>
 </div>
 </div>
@@ -179,7 +189,8 @@ way is slightly faster then import, but sometime may cause issues.</p>
 <div class="highlight-css"><div class="highlight"><pre><span class="k">@import</span> <span class="s1">&#39;library/mixins/*&#39;</span>
 </pre></div>
 </div>
-<p><tt class="docutils literal"><span class="pre">&#64;import</span> <span class="pre">'compass'</span></tt> is very slow, we should use specifc package file:</p>
+<p>Avoid using <tt class="docutils literal"><span class="pre">&#64;import</span> <span class="pre">'compass';</span></tt> directly.
+Compiling <tt class="docutils literal"><span class="pre">&#64;import</span> <span class="pre">'compass'</span></tt> is very slow, we should specifc the package file:</p>
 <p>foo.scss:</p>
 <div class="highlight-css"><div class="highlight"><pre>@import &#39;compass&#39;;
 .x { .y { @include link-colors(#00c, #0cc, #c0c, #ccc, #cc0)}}
@@ -213,7 +224,7 @@ way is slightly faster then import, but sometime may cause issues.</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Files Organization Guideline</a><ul>
+<li><a class="reference internal" href="#">File Organization Guideline</a><ul>
 <li><a class="reference internal" href="#golden-rules">Golden Rules</a></li>
 <li><a class="reference internal" href="#rules">Rules</a></li>
 <li><a class="reference internal" href="#javascript-file-structure">Javascript file structure</a></li>
