@@ -63,12 +63,19 @@
 <h2>Rules<a class="headerlink" href="#rules" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>The core module should contains must-have modules only, and keep it as small as possible.</li>
+<li>A module should be a standalone component, can be installed and removed
+easily. Mean that the module reference name should be simple, meaningful
+and easy to maintain.</li>
+<li>Modules and folders should been named by clearly meaning: &#8216;lang&#8217;, &#8216;dialog&#8217;, &#8216;suggestion&#8217;,
+instead of &#8216;common&#8217;, &#8216;plugins&#8217; , &#8216;frameworks&#8217;</li>
+<li>Always list all your dependances, never use file globbings.</li>
 <li>When you hack some lib, you should avoid to change it directly. Try to
 override or hack them in other file instead.</li>
-<li>folders should named by clearly meaning instead of &#8216;common&#8217;, &#8216;plugins&#8217;
-, &#8216;frameworks&#8217;</li>
-<li>Always lists all your dependances, never use file globbings</li>
-<li>The third-party assets go to vendor folders.</li>
+<li>The third-party assets go to vendor folder.</li>
+<li>Always try to reduce the js and css request count in every page. Each page
+should contains two js links and two css links - the core module and the
+current appliction module. The modules that did not need in render process
+should loaded with delay or loaded on-demand.</li>
 </ul>
 </div>
 <div class="section" id="javascript-file-structure">
@@ -144,10 +151,11 @@ override or hack them in other file instead.</li>
 |   | -- site/
 |   |    | -- index.scss
 |
-|-- mods/                         <span class="c"># Modules (or partials)</span>
+|-- mods/                         <span class="c"># Modules and partials</span>
+|   | -- _typo.scss
+|   | -- _grid.scss
 |   | -- modals.scss
 |   | -- button.scss
-|   | -- alerts.scss
 |
 |-- base.scss                       <span class="c"># Primary base file for all page</span>
 |-- init.scss                       <span class="c"># include non-output modals (TODO)</span>
@@ -164,17 +172,36 @@ override or hack them in other file instead.</li>
 </pre></div>
 </div>
 <p>The &#8216;init.scss&#8217; contains none-output modals(variables, mixins, compass) and
-should be imported by all SCSS files exclude partials.(TODO)</p>
-<p>Don&#8217;t use Asset Pipeline require functions to impport files.</p>
+should be imported by all SCSS files.(TODO)</p>
+<p>Don&#8217;t use Asset Pipeline require functions to import files. The &#8216;requires&#8217;
+way is slightly faster then import, but sometime may cause issues.</p>
 <p>Always lists all your dependances, never use file globbings:</p>
 <div class="highlight-css"><div class="highlight"><pre><span class="k">@import</span> <span class="s1">&#39;library/mixins/*&#39;</span>
 </pre></div>
 </div>
+<p><tt class="docutils literal"><span class="pre">&#64;import</span> <span class="pre">'compass'</span></tt> is very slow, we should use specifc package file:</p>
+<p>foo.scss:</p>
+<div class="highlight-css"><div class="highlight"><pre>@import &#39;compass&#39;;
+.x { .y { @include link-colors(#00c, #0cc, #c0c, #ccc, #cc0)}}
+</pre></div>
 </div>
-<div class="section" id="gems">
-<h2>Gems<a class="headerlink" href="#gems" title="Permalink to this headline">¶</a></h2>
-<p>compass-load-once</p>
-<p>sprockets_better_errors</p>
+<p>bar.scss:</p>
+<div class="highlight-css"><div class="highlight"><pre>@import &#39;compass/typography/links/link-colors&#39;;
+.x { .y { @include link-colors(#00c, #0cc, #c0c, #ccc, #cc0)}}
+</pre></div>
+</div>
+<p>Compare the compile speed:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span><span class="nb">time </span>sass --compass app/assets/stylesheets/foo.scss
+<span class="nv">$ </span>sass --compass app/assets/stylesheets/foo.scss  1.75s user 0.15s system 99% cpu 1.905 total
+
+<span class="nv">$ </span><span class="nb">time </span>sass --compass app/assets/stylesheets/bar.scss
+<span class="nv">$ </span>sass --compass app/assets/stylesheets/bar.scss  1.41s user 0.13s system 99% cpu 1.543 total
+</pre></div>
+</div>
+</div>
+<div class="section" id="changes-in-rails-4">
+<h2>Changes in Rails 4<a class="headerlink" href="#changes-in-rails-4" title="Permalink to this headline">¶</a></h2>
+<p>Image assets in lib/ and vendor/ are no longer automatically precompiled</p>
 </div>
 </div>
 
@@ -193,7 +220,7 @@ should be imported by all SCSS files exclude partials.(TODO)</p>
 <li><a class="reference internal" href="#javascript-requires">Javascript requires</a></li>
 <li><a class="reference internal" href="#stylesheets-file-structure">Stylesheets file structure</a></li>
 <li><a class="reference internal" href="#stylesheets-imports">Stylesheets imports</a></li>
-<li><a class="reference internal" href="#gems">Gems</a></li>
+<li><a class="reference internal" href="#changes-in-rails-4">Changes in Rails 4</a></li>
 </ul>
 </li>
 </ul>

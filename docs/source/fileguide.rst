@@ -12,12 +12,19 @@ Rules
 -----
 
 * The core module should contains must-have modules only, and keep it as small as possible.
+* A module should be a standalone component, can be installed and removed
+  easily. Mean that the module reference name should be simple, meaningful
+  and easy to maintain.
+* Modules and folders should been named by clearly meaning: 'lang', 'dialog', 'suggestion',
+  instead of 'common', 'plugins' , 'frameworks'
+* Always list all your dependances, never use file globbings.
 * When you hack some lib, you should avoid to change it directly. Try to 
   override or hack them in other file instead.
-* folders should named by clearly meaning instead of 'common', 'plugins'
-  , 'frameworks'
-* Always lists all your dependances, never use file globbings  
-* The third-party assets go to vendor folders.
+* The third-party assets go to vendor folder.
+* Always try to reduce the js and css request count in every page. Each page
+  should contains two js links and two css links - the core module and the
+  current appliction module. The modules that did not need in render process
+  should loaded with delay or loaded on-demand.
 
 Javascript file structure
 -------------------------
@@ -105,10 +112,11 @@ Stylesheets file structure
   |   | -- site/
   |   |    | -- index.scss
   |
-  |-- mods/                         # Modules (or partials)
+  |-- mods/                         # Modules and partials
+  |   | -- _typo.scss
+  |   | -- _grid.scss
   |   | -- modals.scss
   |   | -- button.scss
-  |   | -- alerts.scss
   |
   |-- base.scss                       # Primary base file for all page
   |-- init.scss                       # include non-output modals (TODO)
@@ -125,9 +133,10 @@ Stylesheets imports
   @import 'v3/mods/buttons';
 
 The 'init.scss' contains none-output modals(variables, mixins, compass) and 
-should be imported by all SCSS files exclude partials.(TODO)
+should be imported by all SCSS files.(TODO)
 
-Don't use Asset Pipeline require functions to impport files.
+Don't use Asset Pipeline require functions to import files. The 'requires'
+way is slightly faster then import, but sometime may cause issues.
 
 Always lists all your dependances, never use file globbings:
 
@@ -135,8 +144,33 @@ Always lists all your dependances, never use file globbings:
 
     @import 'library/mixins/*'
 
-Gems
------
-compass-load-once
+``@import 'compass'`` is very slow, we should use specifc package file:
 
-sprockets_better_errors
+foo.scss:
+
+.. code-block:: css
+
+  @import 'compass';
+  .x { .y { @include link-colors(#00c, #0cc, #c0c, #ccc, #cc0)}} 
+
+bar.scss:
+
+.. code-block:: css
+
+  @import 'compass/typography/links/link-colors';
+  .x { .y { @include link-colors(#00c, #0cc, #c0c, #ccc, #cc0)}} 
+
+Compare the compile speed:
+
+.. code-block:: bash
+
+  $ time sass --compass app/assets/stylesheets/foo.scss
+  $ sass --compass app/assets/stylesheets/foo.scss  1.75s user 0.15s system 99% cpu 1.905 total
+
+  $ time sass --compass app/assets/stylesheets/bar.scss
+  $ sass --compass app/assets/stylesheets/bar.scss  1.41s user 0.13s system 99% cpu 1.543 total
+
+Changes in Rails 4
+------------------
+
+Image assets in lib/ and vendor/ are no longer automatically precompiled
