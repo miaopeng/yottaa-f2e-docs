@@ -22,9 +22,7 @@ Rules
   should contains two js links and two css links - the core module and the
   current appliction module. The modules that did not need in render process
   should loaded with delay or loaded on-demand.
-* The third-party assets should in vendor folder.
-  
-  If you need hack third-party files, you should avoid to change it directly. Try to 
+* If you need hack third-party files, you should avoid to change it directly. Try to 
   override or hack them in other file instead.
 
   If you are using gem for third-party assets, you should make a more meaningful
@@ -53,9 +51,9 @@ Javascript file structure
   |   | -- management/
   |
   |-- mods/                         # Modules
-  |   | -- modals/
+  |   | -- dialog/
   |   |   | -- index.js             # Module entry file
-  |   |   | -- modals-1.0.1.js
+  |   |   | -- dialog-1.0.1.js
   |   |   | -- tests/
   |   |
   |   | -- graph/
@@ -66,6 +64,7 @@ Javascript file structure
   |   | -- backbone/
   |
   |-- tpls/                         # Static templates (TODO)
+  |-- vendor/                       # Third-Party (TODO)
   |
   |-- base.js                       # Primary base file for all page
 
@@ -75,7 +74,7 @@ Javascript requires
 .. code-block:: javascript
 
   //= require v3/mods/pophelper
-  //= require mods/modals
+  //= require mods/dialog
   //= require ./viewer
 
 Prohibit to require other application files
@@ -89,13 +88,13 @@ Don't require module with specifc index file
 
 .. code-block:: javascript
 
-  //= require mods/modals/index
+  //= require mods/dialog/index
 
 Always use:
 
 .. code-block:: javascript
 
-  //= require mods/modals
+  //= require mods/dialog
 
 Always lists all your dependances, never use file globbings:
 
@@ -117,19 +116,21 @@ Stylesheets file structure
   |
   |-- apps/                         # Applictions
   |   | -- site/
-  |   |    | -- index.scss
+  |   |    | -- index.css.scss
   |
   |-- mods/                         # Modules and partials
+  |   | -- _variables.scss
+  |   | -- _mixins.scss
+  |   | -- _placeholders.scss
   |   | -- _typo.scss
   |   | -- _grid.scss
-  |   | -- modals.scss
-  |   | -- button.scss
+  |   | -- modals.css.scss
+  |   | -- button.css.scss
   |
-  |-- base.scss                       # Primary base file for all page
-  |-- init.scss                       # include non-output modals (TODO)
-  |-- variables.scss
-  |-- mixins.scss
-  |-- placeholders.scss
+  |-- vendor/                         # Third-Party (TODO)
+  |
+  |-- base.css.scss                   # Primary base file for all page
+  |-- _init.scss                      # include non-output modals (TODO)
 
 Stylesheets imports
 -------------------
@@ -140,7 +141,7 @@ Stylesheets imports
   @import 'v3/mods/buttons';
 
 The 'init.scss' contains none-output modals(variables, mixins, compass) and 
-should be imported by all SCSS files.(TODO)
+should be imported by all scss.(TODO)
 
 Don't use Asset Pipeline require functions to import files. The 'requires'
 way is slightly faster then import, but sometime may cause issues.
@@ -181,4 +182,9 @@ Compare the compile speed:
 Changes in Rails 4
 ------------------
 
-Image assets in lib/ and vendor/ are no longer automatically precompiled
+* Rails 4.0 removed the assets group from Gemfile.
+  Now assets are not precompiled on demand in production anymore
+
+* Image assets in lib/ and vendor/ are no longer automatically precompiled
+
+  http://blog.xdite.net/posts/2014/01/29/rails4-asset-mess

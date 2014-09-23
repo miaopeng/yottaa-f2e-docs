@@ -78,8 +78,7 @@ should contains two js links and two css links - the core module and the
 current appliction module. The modules that did not need in render process
 should loaded with delay or loaded on-demand.</p>
 </li>
-<li><p class="first">The third-party assets should in vendor folder.</p>
-<p>If you need hack third-party files, you should avoid to change it directly. Try to
+<li><p class="first">If you need hack third-party files, you should avoid to change it directly. Try to
 override or hack them in other file instead.</p>
 <p>If you are using gem for third-party assets, you should make a more meaningful
 named folder and reference the gem in the index file.</p>
@@ -105,9 +104,9 @@ maybe somebody don&#8217;t know what is atwho.</p>
 |   | -- management/
 |
 |-- mods/                         <span class="c"># Modules</span>
-|   | -- modals/
+|   | -- dialog/
 |   |   | -- index.js             <span class="c"># Module entry file</span>
-|   |   | -- modals-1.0.1.js
+|   |   | -- dialog-1.0.1.js
 |   |   | -- tests/
 |   |
 |   | -- graph/
@@ -118,6 +117,7 @@ maybe somebody don&#8217;t know what is atwho.</p>
 |   | -- backbone/
 |
 |-- tpls/                         <span class="c"># Static templates (TODO)</span>
+|-- vendor/                       <span class="c"># Third-Party (TODO)</span>
 |
 |-- base.js                       <span class="c"># Primary base file for all page</span>
 </pre></div>
@@ -126,7 +126,7 @@ maybe somebody don&#8217;t know what is atwho.</p>
 <div class="section" id="javascript-requires">
 <h2>Javascript requires<a class="headerlink" href="#javascript-requires" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-javascript"><div class="highlight"><pre><span class="c1">//= require v3/mods/pophelper</span>
-<span class="c1">//= require mods/modals</span>
+<span class="c1">//= require mods/dialog</span>
 <span class="c1">//= require ./viewer</span>
 </pre></div>
 </div>
@@ -136,11 +136,11 @@ maybe somebody don&#8217;t know what is atwho.</p>
 </pre></div>
 </div>
 <p>Don&#8217;t require module with specifc index file</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="c1">//= require mods/modals/index</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="c1">//= require mods/dialog/index</span>
 </pre></div>
 </div>
 <p>Always use:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="c1">//= require mods/modals</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="c1">//= require mods/dialog</span>
 </pre></div>
 </div>
 <p>Always lists all your dependances, never use file globbings:</p>
@@ -159,19 +159,21 @@ maybe somebody don&#8217;t know what is atwho.</p>
 |
 |-- apps/                         <span class="c"># Applictions</span>
 |   | -- site/
-|   |    | -- index.scss
+|   |    | -- index.css.scss
 |
 |-- mods/                         <span class="c"># Modules and partials</span>
+|   | -- _variables.scss
+|   | -- _mixins.scss
+|   | -- _placeholders.scss
 |   | -- _typo.scss
 |   | -- _grid.scss
-|   | -- modals.scss
-|   | -- button.scss
+|   | -- modals.css.scss
+|   | -- button.css.scss
 |
-|-- base.scss                       <span class="c"># Primary base file for all page</span>
-|-- init.scss                       <span class="c"># include non-output modals (TODO)</span>
-|-- variables.scss
-|-- mixins.scss
-|-- placeholders.scss
+|-- vendor/                         <span class="c"># Third-Party (TODO)</span>
+|
+|-- base.css.scss                   <span class="c"># Primary base file for all page</span>
+|-- _init.scss                      <span class="c"># include non-output modals (TODO)</span>
 </pre></div>
 </div>
 </div>
@@ -182,7 +184,7 @@ maybe somebody don&#8217;t know what is atwho.</p>
 </pre></div>
 </div>
 <p>The &#8216;init.scss&#8217; contains none-output modals(variables, mixins, compass) and
-should be imported by all SCSS files.(TODO)</p>
+should be imported by all scss.(TODO)</p>
 <p>Don&#8217;t use Asset Pipeline require functions to import files. The &#8216;requires&#8217;
 way is slightly faster then import, but sometime may cause issues.</p>
 <p>Always lists all your dependances, never use file globbings:</p>
@@ -212,7 +214,14 @@ Compiling <tt class="docutils literal"><span class="pre">&#64;import</span> <spa
 </div>
 <div class="section" id="changes-in-rails-4">
 <h2>Changes in Rails 4<a class="headerlink" href="#changes-in-rails-4" title="Permalink to this headline">¶</a></h2>
-<p>Image assets in lib/ and vendor/ are no longer automatically precompiled</p>
+<ul>
+<li><p class="first">Rails 4.0 removed the assets group from Gemfile.
+Now assets are not precompiled on demand in production anymore</p>
+</li>
+<li><p class="first">Image assets in lib/ and vendor/ are no longer automatically precompiled</p>
+<p><a class="reference external" href="http://blog.xdite.net/posts/2014/01/29/rails4-asset-mess">http://blog.xdite.net/posts/2014/01/29/rails4-asset-mess</a></p>
+</li>
+</ul>
 </div>
 </div>
 
