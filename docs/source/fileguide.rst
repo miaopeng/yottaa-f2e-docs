@@ -29,7 +29,9 @@ Rules
   named folder and reference the gem in the index file.
   
   e.g. ``require mods/suggestion`` is better than ``require atwho``, because
+
   maybe somebody don't know what is atwho.
+* Don't use dot and uppercase in folder names.
 
 Javascript file structure
 -------------------------
@@ -65,6 +67,9 @@ Javascript file structure
   |
   |-- tpls/                         # Static templates (TODO)
   |-- vendor/                       # Third-Party (TODO)
+  |   | -- ztree/
+  |   |   | -- index.js
+  |   |   | -- ztree-1.0.js
   |
   |-- base.js                       # Primary base file for all page
 
@@ -188,3 +193,23 @@ Changes in Rails 4
 * Image assets in lib/ and vendor/ are no longer automatically precompiled
 
   http://blog.xdite.net/posts/2014/01/29/rails4-asset-mess
+* Config changes:
+
+  Rails 3
+  config/production.rb
+
+  .. code-block:: ruby
+
+    config.serve_static_assets = false
+    config.assets.compile = false
+
+  Rails 4
+
+  .. code-block:: ruby
+
+    config.serve_static_assets = true
+    config.assets.compile = true
+    config.assets.compress = true
+    config.assets.configure do |env|
+     env.logger = Rails.logger
+    end

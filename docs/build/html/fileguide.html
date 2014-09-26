@@ -82,8 +82,10 @@ should loaded with delay or loaded on-demand.</p>
 override or hack them in other file instead.</p>
 <p>If you are using gem for third-party assets, you should make a more meaningful
 named folder and reference the gem in the index file.</p>
-<p>e.g. <tt class="docutils literal"><span class="pre">require</span> <span class="pre">mods/suggestion</span></tt> is better than <tt class="docutils literal"><span class="pre">require</span> <span class="pre">atwho</span></tt>, because
-maybe somebody don&#8217;t know what is atwho.</p>
+<p>e.g. <tt class="docutils literal"><span class="pre">require</span> <span class="pre">mods/suggestion</span></tt> is better than <tt class="docutils literal"><span class="pre">require</span> <span class="pre">atwho</span></tt>, because</p>
+<p>maybe somebody don&#8217;t know what is atwho.</p>
+</li>
+<li><p class="first">Don&#8217;t use dot and uppercase in folder names.</p>
 </li>
 </ul>
 </div>
@@ -118,6 +120,9 @@ maybe somebody don&#8217;t know what is atwho.</p>
 |
 |-- tpls/                         <span class="c"># Static templates (TODO)</span>
 |-- vendor/                       <span class="c"># Third-Party (TODO)</span>
+|   | -- ztree/
+|   |   | -- index.js
+|   |   | -- ztree-1.0.js
 |
 |-- base.js                       <span class="c"># Primary base file for all page</span>
 </pre></div>
@@ -220,6 +225,23 @@ Now assets are not precompiled on demand in production anymore</p>
 </li>
 <li><p class="first">Image assets in lib/ and vendor/ are no longer automatically precompiled</p>
 <p><a class="reference external" href="http://blog.xdite.net/posts/2014/01/29/rails4-asset-mess">http://blog.xdite.net/posts/2014/01/29/rails4-asset-mess</a></p>
+</li>
+<li><p class="first">Config changes:</p>
+<p>Rails 3
+config/production.rb</p>
+<div class="highlight-ruby"><div class="highlight"><pre><span class="n">config</span><span class="o">.</span><span class="n">serve_static_assets</span> <span class="o">=</span> <span class="kp">false</span>
+<span class="n">config</span><span class="o">.</span><span class="n">assets</span><span class="o">.</span><span class="n">compile</span> <span class="o">=</span> <span class="kp">false</span>
+</pre></div>
+</div>
+<p>Rails 4</p>
+<div class="highlight-ruby"><div class="highlight"><pre><span class="n">config</span><span class="o">.</span><span class="n">serve_static_assets</span> <span class="o">=</span> <span class="kp">true</span>
+<span class="n">config</span><span class="o">.</span><span class="n">assets</span><span class="o">.</span><span class="n">compile</span> <span class="o">=</span> <span class="kp">true</span>
+<span class="n">config</span><span class="o">.</span><span class="n">assets</span><span class="o">.</span><span class="n">compress</span> <span class="o">=</span> <span class="kp">true</span>
+<span class="n">config</span><span class="o">.</span><span class="n">assets</span><span class="o">.</span><span class="n">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">env</span><span class="o">|</span>
+ <span class="n">env</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="no">Rails</span><span class="o">.</span><span class="n">logger</span>
+<span class="k">end</span>
+</pre></div>
+</div>
 </li>
 </ul>
 </div>
