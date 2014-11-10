@@ -87,6 +87,8 @@ named folder and reference the gem in the index file.</p>
 </li>
 <li><p class="first">Don&#8217;t use dot and uppercase in folder names.</p>
 </li>
+<li><p class="first">Run precompile before you make changes to asset or asset related gems.</p>
+</li>
 </ul>
 </div>
 <div class="section" id="javascript-file-structure">
@@ -175,21 +177,19 @@ named folder and reference the gem in the index file.</p>
 |   | -- modals.css.scss
 |   | -- button.css.scss
 |
-|-- vendor/                         <span class="c"># Third-Party (TODO)</span>
+|-- vendor/                         <span class="c"># Third-Party</span>
 |
-|-- base.css.scss                   <span class="c"># Primary base file for all page</span>
-|-- _init.scss                      <span class="c"># include non-output modals (TODO)</span>
+|-- base.css.scss                   <span class="c"># reset and base styles</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="stylesheets-imports">
 <h2>Stylesheets imports<a class="headerlink" href="#stylesheets-imports" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-css"><div class="highlight"><pre><span class="k">@import</span> <span class="s1">&#39;v3/init&#39;</span><span class="p">;</span>
+<div class="highlight-css"><div class="highlight"><pre><span class="k">@import</span> <span class="s1">&#39;v3/mods/variables&#39;</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s1">&#39;v3/mods/mixins&#39;</span><span class="p">;</span>
 <span class="k">@import</span> <span class="s1">&#39;v3/mods/buttons&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>The &#8216;init.scss&#8217; contains none-output modals(variables, mixins, compass) and
-should be imported by all scss.(TODO)</p>
 <p>Don&#8217;t use Asset Pipeline require functions to import files. The &#8216;requires&#8217;
 way is slightly faster then import, but sometime may cause issues.</p>
 <p>Always lists all your dependances, never use file globbings:</p>
@@ -217,13 +217,36 @@ Compiling <tt class="docutils literal"><span class="pre">&#64;import</span> <spa
 </pre></div>
 </div>
 </div>
+<div class="section" id="javascript-handlebars-helpers">
+<h2>Javascript Handlebars Helpers<a class="headerlink" href="#javascript-handlebars-helpers" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>The language helper functions for global use, such as <cite>truncate</cite>, goes to <cite>v3/mods/handlebars/helpers.js</cite>.</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="c1">//= require v3/mods/handlebars/helpers</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Common module helpers, both UI modules and business modules, goes to <cite>v3/mods/ModuleName/helpers.js</cite>:</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="c1">//= require v3/mods/pager/helpers</span>
+<span class="c1">//= require v3/mods/severity/helpers</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>The application use only helpers, goes to the application folder.</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="c1">//= require apps/transformers/helpers</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="changes-in-rails-4">
 <h2>Changes in Rails 4<a class="headerlink" href="#changes-in-rails-4" title="Permalink to this headline">¶</a></h2>
 <ul>
 <li><p class="first">Rails 4.0 removed the assets group from Gemfile.
 Now assets are not precompiled on demand in production anymore</p>
 </li>
-<li><p class="first">Image assets in lib/ and vendor/ are no longer automatically precompiled</p>
+<li><p class="first">Image assets in lib/ and vendor/ are no longer automatically precompiled
+Some asset gems may not work.</p>
 <p><a class="reference external" href="http://blog.xdite.net/posts/2014/01/29/rails4-asset-mess">http://blog.xdite.net/posts/2014/01/29/rails4-asset-mess</a></p>
 </li>
 <li><p class="first">Config changes:</p>
@@ -262,6 +285,7 @@ config/production.rb</p>
 <li><a class="reference internal" href="#javascript-requires">Javascript requires</a></li>
 <li><a class="reference internal" href="#stylesheets-file-structure">Stylesheets file structure</a></li>
 <li><a class="reference internal" href="#stylesheets-imports">Stylesheets imports</a></li>
+<li><a class="reference internal" href="#javascript-handlebars-helpers">Javascript Handlebars Helpers</a></li>
 <li><a class="reference internal" href="#changes-in-rails-4">Changes in Rails 4</a></li>
 </ul>
 </li>

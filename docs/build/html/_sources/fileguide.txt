@@ -32,6 +32,7 @@ Rules
 
   maybe somebody don't know what is atwho.
 * Don't use dot and uppercase in folder names.
+* Run precompile before you make changes to asset or asset related gems.
 
 Javascript file structure
 -------------------------
@@ -132,21 +133,18 @@ Stylesheets file structure
   |   | -- modals.css.scss
   |   | -- button.css.scss
   |
-  |-- vendor/                         # Third-Party (TODO)
+  |-- vendor/                         # Third-Party
   |
-  |-- base.css.scss                   # Primary base file for all page
-  |-- _init.scss                      # include non-output modals (TODO)
+  |-- base.css.scss                   # reset and base styles
 
 Stylesheets imports
 -------------------
 
 .. code-block:: css
 
-  @import 'v3/init';
+  @import 'v3/mods/variables';
+  @import 'v3/mods/mixins';
   @import 'v3/mods/buttons';
-
-The 'init.scss' contains none-output modals(variables, mixins, compass) and 
-should be imported by all scss.(TODO)
 
 Don't use Asset Pipeline require functions to import files. The 'requires'
 way is slightly faster then import, but sometime may cause issues.
@@ -184,6 +182,28 @@ Compare the compile speed:
   $ time sass --compass app/assets/stylesheets/bar.scss
   $ sass --compass app/assets/stylesheets/bar.scss  1.41s user 0.13s system 99% cpu 1.543 total
 
+Javascript Handlebars Helpers
+-----------------------------
+
+* The language helper functions for global use, such as `truncate`, goes to `v3/mods/handlebars/helpers.js`.
+
+.. code-block:: javascript
+  
+  //= require v3/mods/handlebars/helpers
+
+* Common module helpers, both UI modules and business modules, goes to `v3/mods/ModuleName/helpers.js`:
+
+.. code-block:: javascript
+  
+  //= require v3/mods/pager/helpers
+  //= require v3/mods/severity/helpers
+
+* The application use only helpers, goes to the application folder.
+
+.. code-block:: javascript
+  
+  //= require apps/transformers/helpers
+
 Changes in Rails 4
 ------------------
 
@@ -191,6 +211,7 @@ Changes in Rails 4
   Now assets are not precompiled on demand in production anymore
 
 * Image assets in lib/ and vendor/ are no longer automatically precompiled
+  Some asset gems may not work.
 
   http://blog.xdite.net/posts/2014/01/29/rails4-asset-mess
 * Config changes:
