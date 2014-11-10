@@ -185,13 +185,13 @@ Compare the compile speed:
 Javascript Handlebars Helpers
 -----------------------------
 
-* The language helper functions for global use, such as `truncate`, goes to `v3/mods/handlebars/helpers.js`.
+* The language helper functions for global use, such as ``truncate``, goes to ``v3/mods/handlebars/helpers.js``.
 
 .. code-block:: javascript
   
   //= require v3/mods/handlebars/helpers
 
-* Common module helpers, both UI modules and business modules, goes to `v3/mods/ModuleName/helpers.js`:
+* Common module helpers, both UI modules and business modules, goes to ``v3/mods/ModuleName/helpers.js``:
 
 .. code-block:: javascript
   
