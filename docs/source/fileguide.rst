@@ -145,7 +145,7 @@ Stylesheets imports
   @import 'v3/mods/variables';
   @import 'v3/mods/mixins';
   @import 'v3/mods/buttons';
-  @import 'apps/site/index';
+  @import 'mods/switcher/index';
 
 Don't use Asset Pipeline require functions to import files. The 'requires'
 way is slightly faster then import, but sometime may cause issues.
