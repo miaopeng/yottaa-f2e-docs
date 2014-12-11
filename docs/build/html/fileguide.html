@@ -196,8 +196,12 @@ way is slightly faster then import, but sometime may cause issues.</p>
 <div class="highlight-css"><div class="highlight"><pre><span class="k">@import</span> <span class="s1">&#39;library/mixins/*&#39;</span>
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">SASS &#64;import can not automatically import <tt class="docutils literal"><span class="pre">apps/site/index.css</span></tt> by <tt class="docutils literal"><span class="pre">&#64;import</span> <span class="pre">'apps/site';</span></tt>, we have to use <tt class="docutils literal"><span class="pre">&#64;import</span> <span class="pre">'apps/site/index';</span></tt>,</p>
+</div>
 <p>Avoid using <tt class="docutils literal"><span class="pre">&#64;import</span> <span class="pre">'compass';</span></tt> directly.
-Compiling <tt class="docutils literal"><span class="pre">&#64;import</span> <span class="pre">'compass'</span></tt> is very slow, we should specifc the package file:</p>
+Compiling <tt class="docutils literal"><span class="pre">&#64;import</span> <span class="pre">'compass'</span></tt> is very slow, we should specifc the package file.</p>
 <p>foo.scss:</p>
 <div class="highlight-css"><div class="highlight"><pre>@import &#39;compass&#39;;
 .x { .y { @include link-colors(#00c, #0cc, #c0c, #ccc, #cc0)}}

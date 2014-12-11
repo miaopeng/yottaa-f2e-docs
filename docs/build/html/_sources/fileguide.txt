@@ -155,8 +155,10 @@ Always lists all your dependances, never use file globbings:
 
     @import 'library/mixins/*'
 
+.. note :: SASS @import can not automatically import ``apps/site/index.css`` by ``@import 'apps/site';``, we have to use ``@import 'apps/site/index';``, 
+
 Avoid using ``@import 'compass';`` directly.
-Compiling ``@import 'compass'`` is very slow, we should specifc the package file:
+Compiling ``@import 'compass'`` is very slow, we should specifc the package file.
 
 foo.scss:
 
