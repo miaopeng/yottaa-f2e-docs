@@ -123,7 +123,7 @@ Style Rules
 
 2. Indentation
 
-  4 spaces and no tabs.
+  2 spaces and no tabs.
 
 3. Quotes
 
